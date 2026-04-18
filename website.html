@@ -160,7 +160,7 @@ section  { padding:88px 0 }
   display:flex; align-items:center; overflow:hidden;
 }
 .hero-bg { position:absolute; inset:0 }
-.hero-bg img { width:100%; height:100%; object-fit:cover; object-position:center center }
+.hero-bg img { width:100%; height:100%; object-fit:cover; object-position:right center }
 .hero-ov {
   position:absolute; inset:0;
   background:linear-gradient(108deg, rgba(11,22,41,.95) 0%, rgba(11,22,41,.84) 50%, rgba(3,85,128,.45) 100%);
@@ -277,19 +277,6 @@ section  { padding:88px 0 }
 .svc-lnk { font-size:13px; font-weight:700; color:var(--blue); display:flex; align-items:center; gap:6px; transition:gap var(--t) }
 .svc-card:hover .svc-lnk { gap:11px }
 
-/* ─── WHY US ─────────────────────────────── */
-#porque-nos { background:var(--navy) }
-.why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:56px }
-.why-card {
-  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.07);
-  border-radius:var(--r-lg); padding:28px 24px;
-  transition:background var(--t), border-color var(--t), transform var(--t);
-}
-.why-card:hover { background:rgba(255,255,255,.08); border-color:rgba(14,165,233,.28); transform:translateY(-3px) }
-.why-ic  { font-size:28px; margin-bottom:14px }
-.why-card h3 { font-size:17px; font-weight:700; color:#fff; margin-bottom:8px }
-.why-card p  { font-size:14px; color:rgba(255,255,255,.46); line-height:1.75 }
-
 /* ─── PORTFOLIO CAROUSEL ─────────────────── */
 #portfolio { padding-bottom:88px }
 .car-outer { overflow:hidden; margin-top:48px }
@@ -347,17 +334,8 @@ section  { padding:88px 0 }
 .proc-step h3 { font-size:16px; font-weight:700; color:var(--navy); margin-bottom:7px }
 .proc-step p  { font-size:13px; color:var(--muted); line-height:1.65 }
 
-/* ─── MID CTA (urgency) ──────────────────── */
-#cta-mid {
-  background:linear-gradient(135deg,var(--orange),#C2410C);
-  padding:72px 0; text-align:center;
-}
-.cta-mid-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:2.5px; color:rgba(255,255,255,.6); margin-bottom:10px }
-.cta-mid-h { font-size:clamp(22px,3.8vw,40px); font-weight:900; color:#fff; margin-bottom:10px; letter-spacing:-.03em }
-.cta-mid-sub { font-size:16px; color:rgba(255,255,255,.75); margin-bottom:34px }
-.cta-mid-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap }
-
 /* ─── BRANDS ─────────────────────────────── */
+
 .brands-row { display:flex; align-items:center; justify-content:center; gap:40px; flex-wrap:wrap; margin-top:48px }
 .brand-box {
   padding:20px 36px; background:#fff; border-radius:var(--r-lg);
@@ -493,7 +471,7 @@ footer { background:#060E1C; padding:60px 0 0 }
   .hd-nav, .hd-wa { display:none }
   .hd-ham      { display:flex }
   .hero-content { grid-template-columns:1fr }
-  .hero-form-card { max-width:520px }
+  .hero-form-card { max-width:520px; margin:0 auto }
   .svc-grid    { grid-template-columns:1fr }
   .why-grid    { grid-template-columns:1fr }
   .car-slide   { flex:0 0 50% }
@@ -508,7 +486,7 @@ footer { background:#060E1C; padding:60px 0 0 }
   .proof-item:nth-child(2n) { border-right:none }
   .proof-item:last-child, .proof-item:nth-child(3) { border-bottom:none }
   .ft-grid     { grid-template-columns:1fr }
-  .cta-mid-btns, .cta-final-btns { flex-direction:column; align-items:center }
+  .cta-final-btns { flex-direction:column; align-items:center }
   .brands-row  { gap:20px }
   .f-row       { grid-template-columns:1fr }
 }
@@ -585,7 +563,7 @@ footer { background:#060E1C; padding:60px 0 0 }
   <a href="#portfolio"   class="hd-lnk" onclick="closeDrawer()">Trabalhos Recentes</a>
   <a href="#testemunhos" class="hd-lnk" onclick="closeDrawer()">Avaliações</a>
   <a href="#garantias"   class="hd-lnk" onclick="closeDrawer()">Garantias</a>
-  <a href="#faq"         class="hd-lnk" onclick="closeDrawer()">Perguntas Frequentes</a>
+  <a href="#perguntas-ac" class="hd-lnk" onclick="closeDrawer()">Perguntas Frequentes</a>
   <a href="#contacto"    class="hd-lnk" onclick="closeDrawer()">Contacto</a>
   <div class="dr-ctas">
     <a href="tel:+351937058834" class="btn btn-blue btn-block btn-lg">📞 Ligar agora — 937 058 834</a>
@@ -597,8 +575,7 @@ footer { background:#060E1C; padding:60px 0 0 }
 
 <!-- ════════════════════════════════════════
      HERO
-     Imagem: imagens/fundo hero.avif
-     (fallback: imagens/Exemplo hero fundo.jpg)
+     Imagem: imagens/fundo hero 3.webp
 ════════════════════════════════════════ -->
 <section id="hero">
   <div class="hero-bg">
@@ -1258,7 +1235,7 @@ footer { background:#060E1C; padding:60px 0 0 }
     </div>
 
     <div class="ft-bar">
-      <span class="ft-copy">© 2025 AirTech. Todos os direitos reservados.</span>
+      <span class="ft-copy">© 2026 AirTech. Todos os direitos reservados.</span>
       <span class="ft-copy">🏅 Técnicos certificados F-GAS · Daikin · Toyotomi</span>
     </div>
   </div>
