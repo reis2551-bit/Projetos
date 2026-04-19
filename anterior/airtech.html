@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>AirTech — Especialistas em Ar Condicionado | Zona Centro</title>
+<meta name="description" content="Instalação, manutenção e reparação de ar condicionado por técnicos certificados F-GAS na Zona Centro. Resposta em menos de 2h. Orçamento gratuito."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+
+/* ═══════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════ */
+:root {
+  --blue:        #0369A1;
+  --blue-d:      #025A8E;
+  --blue-l:      #E0F2FE;
+  --blue-m:      #BAE6FD;
+  --accent:      #0EA5E9;
+  --navy:        #0C1A2E;
+  --navy-m:      #0F2847;
+  --green:       #059669;
+  --green-l:     #D1FAE5;
+  --amber:       #F59E0B;
+  --text:        #1E293B;
+  --muted:       #64748B;
+  --border:      #E2E8F0;
+  --bg:          #FFFFFF;
+  --bg2:         #F8FAFC;
+  --r:           12px;
+  --r-lg:        20px;
+  --shadow:      0 4px 16px rgba(0,0,0,.07);
+  --shadow-lg:   0 16px 48px rgba(0,0,0,.11);
+  --t:           .25s ease;
+}
+
+/* ═══════════════════════════════════════
+   RESET
+═══════════════════════════════════════ */
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0 }
+html { scroll-behavior:smooth; font-size:16px }
+body {
+  font-family:'Inter',sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  line-height:1.6;
+}
+a { text-decoration:none; color:inherit }
+img { display:block; max-width:100% }
+ul { list-style:none }
+
+/* ═══════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════ */
+@keyframes spin    { to { transform:rotate(360deg) } }
+@keyframes pulse   { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.7)} }
+@keyframes fadeUp  { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:none} }
+@keyframes shimmer { 0%{background-position:200% center} 100%{background-position:-200% center} }
+
+.fade-up {
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity .65s ease, transform .65s ease;
+}
+.fade-up.visible { opacity:1; transform:none }
+
+/* ═══════════════════════════════════════
+   LAYOUT
+═══════════════════════════════════════ */
+.wrap       { max-width:1180px; margin:0 auto; padding:0 28px }
+section     { padding:100px 0 }
+.bg2        { background:var(--bg2) }
+.bg-navy    { background:var(--navy) }
+
+/* ═══════════════════════════════════════
+   TYPOGRAPHY
+═══════════════════════════════════════ */
+.eyebrow {
+  font-size:11px; font-weight:700; letter-spacing:2.5px;
+  text-transform:uppercase; color:var(--accent);
+  margin-bottom:14px; display:block;
+}
+.eyebrow-white { color:rgba(255,255,255,.45) }
+
+.display {
+  font-size:clamp(44px,6vw,74px);
+  font-weight:900; color:#fff;
+  letter-spacing:-.045em; line-height:1.0;
+}
+.h2 {
+  font-size:clamp(32px,4.5vw,52px);
+  font-weight:800; color:var(--navy);
+  letter-spacing:-.035em; line-height:1.08;
+}
+.h2-white { color:#fff }
+.h3 { font-size:clamp(18px,2.2vw,22px); font-weight:700; color:var(--navy) }
+
+.lead {
+  font-size:18px; color:var(--muted);
+  line-height:1.8; max-width:620px;
+}
+.lead-white { color:rgba(255,255,255,.6) }
+.center     { text-align:center }
+.center .lead { margin:0 auto }
+.sec-head   { margin-bottom:72px }
+
+/* ═══════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════ */
+.btn {
+  display:inline-flex; align-items:center; gap:9px;
+  font-family:'Inter',sans-serif; font-weight:600; font-size:15px;
+  padding:14px 28px; border-radius:var(--r);
+  border:none; cursor:pointer;
+  transition:all var(--t); text-align:center;
+  white-space:nowrap; justify-content:center;
+}
+.btn-primary { background:var(--blue); color:#fff }
+.btn-primary:hover {
+  background:var(--blue-d);
+  transform:translateY(-2px);
+  box-shadow:0 8px 28px rgba(3,105,161,.38);
+}
+.btn-ghost {
+  background:rgba(255,255,255,.1); color:#fff;
+  border:1.5px solid rgba(255,255,255,.22);
+}
+.btn-ghost:hover { background:rgba(255,255,255,.2); transform:translateY(-2px) }
+.btn-outline { background:transparent; color:var(--blue); border:1.5px solid var(--blue) }
+.btn-outline:hover { background:var(--blue); color:#fff; transform:translateY(-2px) }
+.btn-green  { background:var(--green); color:#fff }
+.btn-green:hover { background:#047857; transform:translateY(-2px); box-shadow:0 8px 24px rgba(5,150,105,.35) }
+.btn-lg  { padding:17px 40px; font-size:17px }
+.btn-sm  { padding:10px 20px; font-size:13px }
+.btn-block { width:100% }
+
+/* ═══════════════════════════════════════
+   NAVBAR
+═══════════════════════════════════════ */
+#nav {
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  height:72px;
+  transition:background var(--t), box-shadow var(--t), backdrop-filter var(--t);
+}
+#nav.scrolled {
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(20px);
+  box-shadow:0 1px 0 var(--border);
+}
+.nav-wrap {
+  max-width:1180px; margin:0 auto; padding:0 28px;
+  height:72px; display:flex; align-items:center; justify-content:space-between;
+}
+.nav-logo { display:flex; align-items:center; gap:10px; cursor:pointer }
+.nav-gear  { animation:spin 18s linear infinite }
+.nav-name  {
+  font-size:18px; font-weight:800; letter-spacing:-.3px;
+  color:#fff; transition:color var(--t);
+}
+#nav.scrolled .nav-name { color:var(--navy) }
+.nav-name em { color:var(--accent); font-style:normal }
+
+.nav-links { display:flex; align-items:center; gap:2px }
+.nav-link {
+  font-size:14px; font-weight:500; color:rgba(255,255,255,.75);
+  padding:8px 14px; border-radius:8px;
+  cursor:pointer; border:none; background:none;
+  font-family:'Inter',sans-serif;
+  transition:color var(--t), background var(--t);
+}
+.nav-link:hover { color:#fff; background:rgba(255,255,255,.1) }
+#nav.scrolled .nav-link       { color:var(--muted) }
+#nav.scrolled .nav-link:hover { color:var(--navy); background:var(--bg2) }
+
+.nav-cta {
+  background:var(--blue); color:#fff;
+  font-size:14px; font-weight:600;
+  padding:10px 22px; border-radius:var(--r);
+  cursor:pointer; border:none;
+  font-family:'Inter',sans-serif;
+  transition:all var(--t); margin-left:10px;
+}
+.nav-cta:hover { background:var(--blue-d); transform:translateY(-1px) }
+
+.nav-ham {
+  display:none; flex-direction:column; gap:5px;
+  cursor:pointer; padding:8px; border:none; background:none;
+}
+.nav-ham span {
+  width:22px; height:2px; border-radius:2px;
+  background:#fff; transition:all .25s;
+}
+#nav.scrolled .nav-ham span { background:var(--navy) }
+.nav-ham.open span:nth-child(1) { transform:translateY(7px) rotate(45deg) }
+.nav-ham.open span:nth-child(2) { opacity:0 }
+.nav-ham.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg) }
+
+/* Mobile drawer */
+.nav-drawer {
+  position:fixed; top:72px; left:0; right:0; bottom:0;
+  background:#fff; z-index:999;
+  padding:32px 28px;
+  transform:translateX(-100%);
+  transition:transform .3s ease;
+  border-top:1px solid var(--border);
+  display:flex; flex-direction:column; gap:4px;
+}
+.nav-drawer.open { transform:none }
+.nav-drawer .nav-link {
+  color:var(--text); font-size:17px;
+  padding:16px 0; border-bottom:1px solid var(--border);
+  border-radius:0; display:block;
+}
+.nav-drawer .nav-cta {
+  display:block; text-align:center;
+  margin-top:24px; padding:16px; font-size:16px;
+}
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+#hero {
+  position:relative; min-height:100vh;
+  display:flex; align-items:center;
+  overflow:hidden;
+}
+.hero-bg {
+  position:absolute; inset:0;
+  background-image:url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb3?auto=format&fit=crop&w=1920&q=80');
+  background-size:cover; background-position:center;
+  transform:scale(1.06);
+  transition:transform 9s ease;
+}
+#hero.loaded .hero-bg { transform:scale(1) }
+.hero-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(
+    135deg,
+    rgba(12,26,46,.88) 0%,
+    rgba(3,90,142,.72) 55%,
+    rgba(14,165,233,.35) 100%
+  );
+}
+/* subtle animated gradient top-left orb */
+.hero-orb {
+  position:absolute; top:-200px; left:-200px;
+  width:700px; height:700px; border-radius:50%;
+  background:radial-gradient(circle, rgba(14,165,233,.18) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-content {
+  position:relative; z-index:1;
+  max-width:1180px; margin:0 auto; padding:0 28px;
+  padding-top:72px;
+}
+.hero-badge {
+  display:inline-flex; align-items:center; gap:10px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.18);
+  color:rgba(255,255,255,.9); font-size:13px; font-weight:500;
+  padding:8px 18px; border-radius:50px; margin-bottom:32px;
+  backdrop-filter:blur(10px);
+}
+.hero-dot {
+  width:7px; height:7px; background:#4ADE80;
+  border-radius:50%; animation:pulse 2s ease-in-out infinite;
+}
+.hero h1  { margin-bottom:24px; max-width:800px }
+.hero .lead { margin-bottom:44px; font-size:19px }
+.hero-actions { display:flex; gap:16px; flex-wrap:wrap; margin-bottom:72px }
+
+.hero-trust { display:flex; gap:36px; flex-wrap:wrap }
+.trust-item { display:flex; align-items:center; gap:12px }
+.trust-ic   { font-size:22px }
+.trust-txt  { font-size:13px; color:rgba(255,255,255,.6) }
+.trust-txt strong { display:block; font-size:15px; font-weight:700; color:#fff; margin-bottom:1px }
+
+/* ═══════════════════════════════════════
+   STATS BAR
+═══════════════════════════════════════ */
+#stats { padding:0; background:var(--navy) }
+.stats-grid {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  border-top:1px solid rgba(255,255,255,.07);
+}
+.stat {
+  padding:44px 28px; text-align:center;
+  border-right:1px solid rgba(255,255,255,.07);
+  transition:background var(--t);
+}
+.stat:last-child { border-right:none }
+.stat:hover { background:rgba(255,255,255,.035) }
+.stat-num {
+  font-size:48px; font-weight:900; letter-spacing:-.05em;
+  color:#fff; line-height:1; margin-bottom:8px;
+}
+.stat-num em { color:var(--accent); font-style:normal }
+.stat-lbl { font-size:13px; font-weight:500; color:rgba(255,255,255,.4); letter-spacing:.3px }
+
+/* ═══════════════════════════════════════
+   SERVICES
+═══════════════════════════════════════ */
+.services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px }
+
+.svc-card {
+  border-radius:var(--r-lg); overflow:hidden;
+  border:1px solid var(--border); background:#fff;
+  transition:transform var(--t), box-shadow var(--t), border-color var(--t);
+  cursor:pointer;
+}
+.svc-card:hover {
+  transform:translateY(-7px);
+  box-shadow:var(--shadow-lg);
+  border-color:var(--blue-m);
+}
+.svc-img {
+  height:220px; background-size:cover; background-position:center;
+  position:relative;
+}
+.svc-img::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:90px;
+  background:linear-gradient(transparent, rgba(0,0,0,.55));
+}
+.svc-price-tag {
+  position:absolute; top:16px; right:16px; z-index:1;
+  background:rgba(0,0,0,.55); backdrop-filter:blur(8px);
+  color:#fff; font-size:12px; font-weight:700;
+  padding:6px 14px; border-radius:50px;
+  border:1px solid rgba(255,255,255,.15);
+}
+.svc-body { padding:28px 28px 24px }
+.svc-icon {
+  width:50px; height:50px; border-radius:14px;
+  background:var(--blue-l);
+  display:flex; align-items:center; justify-content:center;
+  font-size:22px; margin-bottom:18px;
+}
+.svc-card:nth-child(2) .svc-icon { background:var(--green-l) }
+.svc-card:nth-child(3) .svc-icon { background:#FEF3C7 }
+.svc-card h3 { font-size:20px; font-weight:700; margin-bottom:10px }
+.svc-card p  { font-size:14px; color:var(--muted); line-height:1.7; margin-bottom:20px }
+
+.svc-checks { display:flex; flex-direction:column; gap:9px; margin-bottom:24px }
+.svc-check  {
+  display:flex; align-items:center; gap:10px;
+  font-size:13px; color:var(--text);
+}
+.svc-check-ic {
+  width:18px; height:18px; border-radius:50%; flex-shrink:0;
+  background:var(--green-l); position:relative;
+}
+.svc-check-ic::after {
+  content:''; position:absolute;
+  top:4px; left:4px; width:10px; height:6px;
+  border-left:2px solid var(--green);
+  border-bottom:2px solid var(--green);
+  transform:rotate(-45deg);
+}
+.svc-footer {
+  display:flex; align-items:center; justify-content:space-between;
+  padding-top:18px; border-top:1px solid var(--border);
+}
+.svc-price     { font-size:24px; font-weight:800; color:var(--blue) }
+.svc-price span { font-size:12px; font-weight:400; color:var(--muted) }
+.svc-link {
+  font-size:13px; font-weight:600; color:var(--blue);
+  display:flex; align-items:center; gap:6px;
+  transition:gap var(--t);
+}
+.svc-card:hover .svc-link { gap:10px }
+
+/* ═══════════════════════════════════════
+   WHY US
+═══════════════════════════════════════ */
+.why-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:88px; align-items:center;
+}
+.why-img-wrap {
+  position:relative;
+  border-radius:var(--r-lg); overflow:visible;
+}
+.why-img {
+  border-radius:var(--r-lg);
+  aspect-ratio:4/5;
+  background-image:url('https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=900&q=80');
+  background-size:cover; background-position:center;
+  box-shadow:var(--shadow-lg);
+}
+.why-float-card {
+  position:absolute; bottom:-24px; right:-24px;
+  background:#fff; border-radius:16px; padding:22px 26px;
+  box-shadow:0 20px 60px rgba(0,0,0,.13);
+  display:flex; align-items:center; gap:16px;
+  border:1px solid var(--border);
+}
+.why-float-icon { font-size:34px }
+.why-float-val  { font-size:26px; font-weight:900; color:var(--navy); line-height:1 }
+.why-float-lbl  { font-size:12px; color:var(--muted); margin-top:3px }
+
+.why-text {}
+.why-text .lead { margin-top:20px }
+.why-feats  { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:44px }
+.why-feat {
+  padding:22px; background:var(--bg2); border-radius:var(--r);
+  border:1.5px solid var(--border);
+  transition:border-color var(--t), box-shadow var(--t), transform var(--t);
+}
+.why-feat:hover {
+  border-color:var(--accent);
+  box-shadow:0 4px 20px rgba(14,165,233,.12);
+  transform:translateY(-2px);
+}
+.why-feat-icon { font-size:24px; margin-bottom:10px }
+.why-feat h4   { font-size:14px; font-weight:700; color:var(--navy); margin-bottom:5px }
+.why-feat p    { font-size:13px; color:var(--muted); line-height:1.65 }
+
+/* ═══════════════════════════════════════
+   PROCESS
+═══════════════════════════════════════ */
+.process-grid {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  gap:24px; margin-top:72px; position:relative;
+}
+.process-grid::before {
+  content:''; position:absolute;
+  top:32px; left:calc(12.5% + 16px); right:calc(12.5% + 16px); height:2px;
+  background:linear-gradient(90deg, var(--blue), var(--accent));
+  z-index:0; opacity:.5;
+}
+.process-step { text-align:center; position:relative; z-index:1 }
+.process-num {
+  width:64px; height:64px; border-radius:50%;
+  background:linear-gradient(135deg, var(--blue), var(--accent));
+  color:#fff; font-size:20px; font-weight:800;
+  display:flex; align-items:center; justify-content:center;
+  margin:0 auto 22px;
+  box-shadow:0 6px 20px rgba(3,105,161,.35);
+}
+.process-step h3 { font-size:16px; font-weight:700; margin-bottom:10px }
+.process-step p  { font-size:13px; color:var(--muted); line-height:1.7 }
+
+/* ═══════════════════════════════════════
+   BRANDS
+═══════════════════════════════════════ */
+#brands {}
+.brands-banner {
+  background:linear-gradient(135deg, var(--navy) 0%, var(--navy-m) 100%);
+  border-radius:var(--r-lg); padding:56px 52px;
+  display:flex; align-items:center; justify-content:space-between;
+  flex-wrap:wrap; gap:32px; margin-bottom:32px;
+  position:relative; overflow:hidden;
+}
+.brands-banner::after {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse at 80% 50%, rgba(14,165,233,.12) 0%, transparent 60%);
+  pointer-events:none;
+}
+.brands-banner-left { position:relative; z-index:1 }
+.brands-banner-left .h2 { color:#fff; margin-top:10px }
+.brands-banner-left .lead { color:rgba(255,255,255,.45); font-size:16px; margin-top:12px }
+.brands-certs { display:flex; gap:12px; position:relative; z-index:1 }
+.cert-badge {
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--r); padding:18px 22px; text-align:center; min-width:90px;
+}
+.cert-badge-icon { font-size:26px; margin-bottom:8px }
+.cert-badge-text { font-size:11px; color:rgba(255,255,255,.4); font-weight:500; line-height:1.5 }
+
+.brands-cards { display:grid; grid-template-columns:1fr 1fr; gap:24px }
+.brand-card {
+  border-radius:var(--r-lg); overflow:hidden;
+  border:2px solid var(--border);
+  transition:transform var(--t), box-shadow var(--t);
+}
+.brand-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-lg) }
+.brand-head {
+  padding:30px 32px; display:flex;
+  align-items:center; justify-content:space-between;
+}
+.brand-daikin   .brand-head { background:#0097E0 }
+.brand-toyotomi .brand-head { background:linear-gradient(135deg,#FF6B35,#F7931E 60%,#FFB347) }
+.brand-logo-name {
+  font-size:32px; font-weight:900; color:#fff; letter-spacing:-.03em;
+}
+.brand-logo-sub { font-size:10px; color:rgba(255,255,255,.65); margin-top:4px; letter-spacing:.5px }
+.brand-cert-pill {
+  background:rgba(255,255,255,.2); border:1px solid rgba(255,255,255,.3);
+  font-size:11px; font-weight:600; color:#fff;
+  padding:7px 16px; border-radius:50px;
+}
+.brand-body { padding:26px 32px; background:#fff }
+.brand-desc { font-size:13px; color:var(--muted); line-height:1.7; margin-bottom:18px }
+.brand-tags { display:flex; flex-wrap:wrap; gap:8px }
+.brand-tag {
+  background:var(--bg2); border:1px solid var(--border);
+  font-size:11px; font-weight:600; color:var(--navy);
+  padding:5px 12px; border-radius:7px;
+}
+
+/* ═══════════════════════════════════════
+   REVIEWS
+═══════════════════════════════════════ */
+.google-widget {
+  background:linear-gradient(135deg, var(--navy) 0%, var(--navy-m) 100%);
+  border-radius:var(--r-lg); padding:56px;
+  text-align:center; margin-bottom:44px;
+  position:relative; overflow:hidden;
+}
+.google-widget::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse at 25% 50%, rgba(14,165,233,.15) 0%, transparent 55%);
+  pointer-events:none;
+}
+.g-widget-inner { position:relative; z-index:1 }
+.g-logo { display:flex; align-items:center; justify-content:center; gap:14px; margin-bottom:28px }
+.g-circle {
+  width:48px; height:48px; border-radius:50%;
+  background:linear-gradient(135deg,#4285F4,#34A853,#FBBC05,#EA4335);
+  display:flex; align-items:center; justify-content:center;
+}
+.g-circle span { font-size:24px; font-weight:900; color:#fff; font-family:'Arial Black',sans-serif }
+.g-biz-name  { font-size:15px; font-weight:600; color:rgba(255,255,255,.8) }
+.g-biz-sub   { font-size:12px; color:rgba(255,255,255,.35); margin-top:2px }
+.g-num       { font-size:96px; font-weight:900; letter-spacing:-.07em; color:#fff; line-height:1; margin-bottom:10px }
+.g-stars     { font-size:38px; color:#FBBF24; letter-spacing:4px; margin-bottom:12px }
+.g-count     { font-size:14px; color:rgba(255,255,255,.4) }
+.g-count a   { color:var(--accent); text-decoration:underline }
+
+.rev-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px }
+.rev-card {
+  background:#fff; border:1px solid var(--border);
+  border-radius:var(--r-lg); padding:30px;
+  transition:transform var(--t), box-shadow var(--t);
+}
+.rev-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-lg) }
+.rev-stars { color:#FBBF24; font-size:15px; letter-spacing:2px; margin-bottom:14px }
+.rev-text  { font-size:15px; color:var(--text); line-height:1.75; margin-bottom:22px; font-style:italic }
+.rev-author { display:flex; align-items:center; gap:12px }
+.rev-avatar {
+  width:44px; height:44px; border-radius:50%; flex-shrink:0;
+  background:linear-gradient(135deg, var(--blue), var(--accent));
+  display:flex; align-items:center; justify-content:center;
+  font-size:15px; font-weight:700; color:#fff;
+}
+.rev-name { font-size:14px; font-weight:700; color:var(--navy) }
+.rev-meta { font-size:12px; color:var(--muted); margin-top:2px }
+.rev-cta  { text-align:center; margin-top:52px }
+
+/* ═══════════════════════════════════════
+   CTA BAND
+═══════════════════════════════════════ */
+#cta {
+  background:linear-gradient(135deg, var(--navy) 0%, #0F3460 50%, var(--navy-m) 100%);
+  padding:108px 0; position:relative; overflow:hidden;
+}
+#cta::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse at 75% 50%, rgba(14,165,233,.18) 0%, transparent 60%);
+  pointer-events:none;
+}
+.cta-inner { position:relative; z-index:1; text-align:center }
+.cta-inner .display { font-size:clamp(34px,5vw,62px); margin-bottom:20px }
+.cta-inner .lead-white { font-size:19px; margin-bottom:44px; margin-left:auto; margin-right:auto }
+.cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap }
+
+/* ═══════════════════════════════════════
+   FORM SECTION
+═══════════════════════════════════════ */
+#contact {}
+.contact-grid { display:grid; grid-template-columns:1fr 1.55fr; gap:72px; align-items:start }
+
+.contact-aside {}
+.contact-aside .lead { font-size:16px; margin-top:18px }
+.contact-list { display:flex; flex-direction:column; gap:16px; margin-top:40px }
+.c-item {
+  display:flex; align-items:flex-start; gap:16px;
+  padding:22px; background:var(--bg2);
+  border-radius:var(--r); border:1px solid var(--border);
+  transition:border-color var(--t);
+}
+.c-item:hover { border-color:var(--blue-m) }
+.c-item-icon  { font-size:22px; flex-shrink:0; margin-top:2px }
+.c-item-lbl   { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin-bottom:5px }
+.c-item-val   { font-size:15px; font-weight:600; color:var(--navy) }
+.c-item-sub   { font-size:12px; color:var(--green); font-weight:500; margin-top:3px }
+.c-item-sub2  { font-size:12px; color:var(--muted); margin-top:3px }
+
+.form-card {
+  background:#fff; border-radius:var(--r-lg);
+  padding:44px; box-shadow:var(--shadow-lg); border:1px solid var(--border);
+}
+.form-card-title { font-size:22px; font-weight:800; color:var(--navy); margin-bottom:6px }
+.form-card-sub   { font-size:14px; color:var(--muted); margin-bottom:32px }
+.f-row  { display:grid; grid-template-columns:1fr 1fr; gap:16px }
+.f-grp  { display:flex; flex-direction:column; gap:6px; margin-bottom:18px }
+.f-grp label { font-size:13px; font-weight:600; color:var(--navy) }
+.f-grp input,
+.f-grp select,
+.f-grp textarea {
+  font-family:'Inter',sans-serif;
+  background:#fff; border:1.5px solid var(--border);
+  border-radius:var(--r); padding:13px 16px;
+  font-size:14px; color:var(--text); outline:none;
+  transition:border-color var(--t), box-shadow var(--t); width:100%;
+}
+.f-grp input:focus,
+.f-grp select:focus,
+.f-grp textarea:focus {
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(3,105,161,.09);
+}
+.f-grp textarea {
+  resize:vertical; min-height:110px;
+}
+.f-grp select {
+  appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%2364748B'%3E%3Cpath d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 14px center;
+  background-size:16px;
+}
+.f-privacy {
+  display:flex; align-items:center; gap:8px;
+  font-size:12px; color:var(--muted);
+  margin-bottom:22px;
+}
+.f-submit { padding:17px; font-size:16px; font-weight:700 }
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer { background:var(--navy); padding:72px 0 0 }
+.footer-grid {
+  display:grid; grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:52px; padding-bottom:52px;
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.ft-brand {}
+.ft-logo   { font-size:20px; font-weight:800; color:#fff; display:block; margin-bottom:14px }
+.ft-logo em { color:var(--accent); font-style:normal }
+.ft-tagline { font-size:14px; color:rgba(255,255,255,.38); line-height:1.75; max-width:300px; margin-bottom:28px }
+.ft-socials { display:flex; gap:10px }
+.ft-social  {
+  width:38px; height:38px; border-radius:9px;
+  background:rgba(255,255,255,.07);
+  display:flex; align-items:center; justify-content:center;
+  color:rgba(255,255,255,.45); font-size:18px;
+  transition:background var(--t), color var(--t);
+}
+.ft-social:hover { background:var(--blue); color:#fff }
+.ft-col h4 {
+  font-size:10px; font-weight:700; letter-spacing:2.5px;
+  text-transform:uppercase; color:rgba(255,255,255,.28); margin-bottom:20px;
+}
+.ft-col ul  { display:flex; flex-direction:column; gap:10px }
+.ft-col a   { font-size:14px; color:rgba(255,255,255,.5); transition:color var(--t) }
+.ft-col a:hover { color:#fff }
+.footer-bar {
+  padding:24px 0; display:flex;
+  align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;
+}
+.ft-copy   { font-size:13px; color:rgba(255,255,255,.22) }
+.ft-rating { display:flex; align-items:center; gap:8px; font-size:13px; color:rgba(255,255,255,.3) }
+.ft-stars  { color:#FBBF24 }
+
+/* ═══════════════════════════════════════
+   WHATSAPP FLOAT
+═══════════════════════════════════════ */
+.wa-btn {
+  position:fixed; bottom:28px; right:28px; z-index:999;
+  width:58px; height:58px; border-radius:50%; background:#25D366;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 22px rgba(37,211,102,.45);
+  transition:transform var(--t), box-shadow var(--t);
+}
+.wa-btn:hover { transform:scale(1.1); box-shadow:0 8px 36px rgba(37,211,102,.55) }
+.wa-btn svg { width:30px; height:30px }
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media (max-width:1024px) {
+  .why-grid       { grid-template-columns:1fr; gap:56px }
+  .why-img        { max-height:420px; aspect-ratio:16/9 }
+  .why-float-card { right:20px; bottom:20px }
+  .contact-grid   { grid-template-columns:1fr; gap:48px }
+  .footer-grid    { grid-template-columns:1fr 1fr; gap:36px }
+}
+@media (max-width:768px) {
+  section { padding:72px 0 }
+  .nav-links, .nav-cta { display:none }
+  .nav-ham  { display:flex }
+  .nav-name { color:var(--navy) }
+  #nav:not(.scrolled) .nav-name { color:#fff }
+  #nav:not(.scrolled) .nav-ham span { background:#fff }
+  .services-grid, .brands-cards, .rev-grid { grid-template-columns:1fr }
+  .process-grid  { grid-template-columns:1fr 1fr }
+  .process-grid::before { display:none }
+  .stats-grid    { grid-template-columns:1fr 1fr }
+  .stat { border-right:none; border-bottom:1px solid rgba(255,255,255,.07); padding:32px 20px }
+  .brands-banner { flex-direction:column }
+  .why-feats     { grid-template-columns:1fr }
+  .google-widget { padding:36px 24px }
+  .g-num         { font-size:68px }
+  .footer-grid   { grid-template-columns:1fr }
+  .cta-btns      { flex-direction:column; align-items:center }
+  .hero-actions  { flex-direction:column; max-width:360px }
+  .btn-lg        { width:100%; justify-content:center }
+  .f-row         { grid-template-columns:1fr }
+  .form-card     { padding:28px }
+}
+@media (max-width:480px) {
+  .wrap { padding:0 18px }
+  .process-grid { grid-template-columns:1fr }
+  .stats-grid   { grid-template-columns:1fr 1fr }
+  .brands-certs { flex-wrap:wrap }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════ -->
+<nav id="nav">
+  <div class="nav-wrap">
+    <div class="nav-logo" onclick="scrollTo({top:0,behavior:'smooth'})">
+      <svg class="nav-gear" width="28" height="28" viewBox="0 0 100 100">
+        <path fill="#0EA5E9" d="M43.3 5.5l-2.2 8.3a33.4 33.4 0 00-8.1 3.4l-7.8-3.8-9.4 9.4 3.8 7.8a33.4 33.4 0 00-3.4 8.1L8 40.9v13.2l8.3 2.2a33.4 33.4 0 003.4 8.1l-3.8 7.8 9.4 9.4 7.8-3.8a33.4 33.4 0 008.1 3.4l2.2 8.3h13.2l2.2-8.3a33.4 33.4 0 008.1-3.4l7.8 3.8 9.4-9.4-3.8-7.8a33.4 33.4 0 003.4-8.1L92 54V40.9l-8.3-2.2a33.4 33.4 0 00-3.4-8.1l3.8-7.8-9.4-9.4-7.8 3.8a33.4 33.4 0 00-8.1-3.4L56.7 5.5H43.3zM50 34a16 16 0 110 32 16 16 0 010-32z"/>
+      </svg>
+      <span class="nav-name">Air<em>Tech</em></span>
+    </div>
+
+    <div class="nav-links">
+      <button class="nav-link" onclick="goTo('services')">Serviços</button>
+      <button class="nav-link" onclick="goTo('brands')">Marcas</button>
+      <button class="nav-link" onclick="goTo('reviews')">Avaliações</button>
+      <button class="nav-link" onclick="goTo('contact')">Contacto</button>
+    </div>
+    <button class="nav-cta" onclick="goTo('contact')">Pedir Orçamento</button>
+
+    <button class="nav-ham" id="ham" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="nav-drawer" id="drawer">
+  <button class="nav-link" onclick="goTo('services');closeMenu()">Serviços</button>
+  <button class="nav-link" onclick="goTo('brands');closeMenu()">Marcas</button>
+  <button class="nav-link" onclick="goTo('reviews');closeMenu()">Avaliações</button>
+  <button class="nav-link" onclick="goTo('contact');closeMenu()">Contacto</button>
+  <button class="nav-cta btn btn-block" onclick="goTo('contact');closeMenu()">Pedir Orçamento Gratuito →</button>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     HERO
+═══════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-orb"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="hero-dot"></div>
+      Disponível 24 horas · Zona Centro de Portugal
+    </div>
+
+    <h1 class="display">
+      O Conforto que<br>a Sua Casa Merece
+    </h1>
+
+    <p class="lead lead-white">
+      Instalação, manutenção e reparação de ar condicionado.<br>
+      Técnicos certificados F-GAS. Resposta garantida em menos de 2 horas.
+    </p>
+
+    <div class="hero-actions">
+      <button class="btn btn-primary btn-lg" onclick="goTo('contact')">
+        Pedir Orçamento Grátis →
+      </button>
+      <a href="tel:+351239000000" class="btn btn-ghost btn-lg">
+        📞 Ligar Agora
+      </a>
+    </div>
+
+    <div class="hero-trust">
+      <div class="trust-item">
+        <div class="trust-ic">⭐</div>
+        <div class="trust-txt">
+          <strong>4.9 / 5.0</strong>
+          87 avaliações Google
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-ic">🏅</div>
+        <div class="trust-txt">
+          <strong>Cert. F-GAS</strong>
+          Técnicos certificados
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-ic">⚡</div>
+        <div class="trust-txt">
+          <strong>Resposta &lt;2h</strong>
+          7 dias por semana
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-ic">🛡️</div>
+        <div class="trust-txt">
+          <strong>Garantia 5 anos</strong>
+          Mão de obra incluída
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     STATS BAR
+═══════════════════════════════════════ -->
+<div id="stats">
+  <div class="stats-grid wrap">
+    <div class="stat fade-up">
+      <div class="stat-num">500<em>+</em></div>
+      <div class="stat-lbl">Clientes Satisfeitos</div>
+    </div>
+    <div class="stat fade-up">
+      <div class="stat-num">4.9<em>★</em></div>
+      <div class="stat-lbl">Classificação Google</div>
+    </div>
+    <div class="stat fade-up">
+      <div class="stat-num">&lt;2<em>h</em></div>
+      <div class="stat-lbl">Tempo de Resposta</div>
+    </div>
+    <div class="stat fade-up">
+      <div class="stat-num">5<em>★</em></div>
+      <div class="stat-lbl">Anos de Garantia</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     SERVICES
+═══════════════════════════════════════ -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head center fade-up">
+      <span class="eyebrow">O que fazemos</span>
+      <h2 class="h2">Serviços que fazem a diferença</h2>
+      <p class="lead" style="margin-top:18px">
+        Do diagnóstico à instalação, tratamos de tudo — com transparência,<br>
+        qualidade e sem surpresas no preço.
+      </p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- Instalação -->
+      <div class="svc-card fade-up" onclick="goTo('contact')">
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=800&q=80')">
+          <div class="svc-price-tag">A partir de 350 €</div>
+        </div>
+        <div class="svc-body">
+          <div class="svc-icon">❄️</div>
+          <h3>Instalação de A/C</h3>
+          <p>Sistemas split, multi-split e VRF para habitação e comércio. Certificados F-GAS. Terminamos no próprio dia.</p>
+          <ul class="svc-checks">
+            <li class="svc-check"><div class="svc-check-ic"></div>Visita técnica gratuita</li>
+            <li class="svc-check"><div class="svc-check-ic"></div>Instalação em 1 dia</li>
+            <li class="svc-check"><div class="svc-check-ic"></div>Garantia de 5 anos</li>
+            <li class="svc-check"><div class="svc-check-ic"></div>Certificado de conformidade</li>
+          </ul>
+          <div class="svc-footer">
+            <div class="svc-price">350€ <span>/ a partir de</span></div>
+            <span class="svc-link">Pedir orçamento →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Manutenção -->
+      <div class="svc-card fade-up" onclick="goTo('contact')">
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1581092160607-ee22731c9c9e?auto=format&fit=crop&w=800&q=80')">
+          <div class="svc-price-tag">A partir de 80 €</div>
+        </div>
+        <div class="svc-body">
+          <div class="svc-icon">🔧</div>
+          <h3>Manutenção Preventiva</h3>
+          <p>Limpeza profissional, controlo de gás e diagnóstico preventivo. Plano anual com desconto — poupe a longo prazo.</p>
+          <ul class="svc-checks">
+            <li class="svc-check"><div class="svc-check-ic"></div>Plano anual com desconto</li>
+            <li class="svc-check"><div class="svc-check-ic"></div>Relatório técnico digital</li>
+            <li class="svc-check"><div class="svc-check-ic"></div>Limpeza profunda de filtros</li>
+            <li class="svc-check"><div class="svc-check-ic"></div>Verificação de pressões de gás</li>
+          </ul>
+          <div class="svc-footer">
+            <div class="svc-price">80€ <span>/ a partir de</span></div>
+            <span class="svc-link">Agendar →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reparação -->
+      <div class="svc-card fade-up" onclick="goTo('contact')">
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80')">
+          <div class="svc-price-tag">Diagnóstico 39 €</div>
+        </div>
+        <div class="svc-body">
+          <div class="svc-icon">⚡</div>
+          <h3>Reparação e Urgências</h3>
+          <p>Avaria em qualquer marca? Diagnóstico em 24h, orçamento fixo sem surpresas. Urgências ao fim de semana.</p>
+          <ul class="svc-checks">
+            <li class="svc-check"><div class="svc-check-ic"></div>Diagnóstico em 24 horas</li>
+            <li class="svc-check"><div class="svc-check-ic"></div>Peças originais certificadas</li>
+            <li class="svc-check"><div class="svc-check-ic"></div>Orçamento sem compromisso</li>
+            <li class="svc-check"><div class="svc-check-ic"></div>Urgências ao fim de semana</li>
+          </ul>
+          <div class="svc-footer">
+            <div class="svc-price">39€ <span>/ diagnóstico</span></div>
+            <span class="svc-link">Contactar →</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     WHY US
+═══════════════════════════════════════ -->
+<section id="why" class="bg2">
+  <div class="wrap">
+    <div class="why-grid">
+
+      <div class="why-img-wrap fade-up">
+        <div class="why-img"></div>
+        <div class="why-float-card">
+          <div class="why-float-icon">🏅</div>
+          <div>
+            <div class="why-float-val">F-GAS</div>
+            <div class="why-float-lbl">Técnicos Certificados</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-text fade-up">
+        <span class="eyebrow">Porquê a AirTech?</span>
+        <h2 class="h2">Técnicos que tratam a sua casa como se fosse a deles</h2>
+        <p class="lead">
+          Nascemos em 2024 com um propósito claro: oferecer o melhor serviço de ar condicionado da Zona Centro.
+          Rápidos, honestos e cuidados em cada detalhe.
+        </p>
+        <div class="why-feats">
+          <div class="why-feat">
+            <div class="why-feat-icon">⚡</div>
+            <h4>Resposta em menos de 2h</h4>
+            <p>Sem esperas de dias. Estamos consigo quando precisa, 7 dias por semana.</p>
+          </div>
+          <div class="why-feat">
+            <div class="why-feat-icon">💰</div>
+            <h4>Preço fixo e transparente</h4>
+            <p>Orçamento antes de qualquer intervenção. Sem surpresas na fatura.</p>
+          </div>
+          <div class="why-feat">
+            <div class="why-feat-icon">🔒</div>
+            <h4>Garantia de 5 anos</h4>
+            <p>Mão de obra incluída. Ficamos responsáveis pelo trabalho executado.</p>
+          </div>
+          <div class="why-feat">
+            <div class="why-feat-icon">📍</div>
+            <h4>Toda a Zona Centro</h4>
+            <p>Coimbra, Aveiro, Viseu, Leiria e Castelo Branco.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     PROCESS
+═══════════════════════════════════════ -->
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head center fade-up">
+      <span class="eyebrow">Como trabalhamos</span>
+      <h2 class="h2">Do contacto ao conforto<br>em 4 passos</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-step fade-up">
+        <div class="process-num">1</div>
+        <h3>Contacto</h3>
+        <p>Liga-nos ou preenche o formulário. Respondemos em menos de 5 minutos, garantido.</p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="process-num">2</div>
+        <h3>Visita Técnica</h3>
+        <p>Técnico certificado vai a sua casa. Diagnóstico e orçamento gratuitos, sem qualquer compromisso.</p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="process-num">3</div>
+        <h3>Serviço</h3>
+        <p>Aprovado o orçamento, realizamos a instalação ou reparação — habitualmente no próprio dia.</p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="process-num">4</div>
+        <h3>Garantia Total</h3>
+        <p>Entregamos o certificado de conformidade e activamos os 5 anos de garantia de mão de obra.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     BRANDS
+═══════════════════════════════════════ -->
+<section id="brands" class="bg2">
+  <div class="wrap">
+
+    <div class="brands-banner fade-up">
+      <div class="brands-banner-left">
+        <span class="eyebrow eyebrow-white">Parceiros Oficiais</span>
+        <h2 class="h2 h2-white">Instaladores certificados<br>das melhores marcas</h2>
+        <p class="lead" style="color:rgba(255,255,255,.4);font-size:16px;margin-top:14px">
+          Trabalhamos com os líderes mundiais em climatização para lhe oferecer o melhor equipamento ao melhor preço.
+        </p>
+      </div>
+      <div class="brands-certs">
+        <div class="cert-badge">
+          <div class="cert-badge-icon">🏅</div>
+          <div class="cert-badge-text">F-GAS<br>Cert.</div>
+        </div>
+        <div class="cert-badge">
+          <div class="cert-badge-icon">⚙️</div>
+          <div class="cert-badge-text">Técnicos<br>Cert.</div>
+        </div>
+        <div class="cert-badge">
+          <div class="cert-badge-icon">📋</div>
+          <div class="cert-badge-text">ISO<br>Conform.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="brands-cards fade-up">
+
+      <!-- DAIKIN -->
+      <div class="brand-card brand-daikin">
+        <div class="brand-head">
+          <div>
+            <div class="brand-logo-name">DAIKIN</div>
+            <div class="brand-logo-sub">Minds for the future · Japan, 1924</div>
+          </div>
+          <span class="brand-cert-pill">Instalador Certificado</span>
+        </div>
+        <div class="brand-body">
+          <p class="brand-desc">
+            O maior fabricante mundial de ar condicionado. Líder em eficiência energética A+++ e presente em mais de 150 países.
+            A AirTech é instalador certificado Daikin para toda a Zona Centro.
+          </p>
+          <div class="brand-tags">
+            <span class="brand-tag">Eficiência A+++</span>
+            <span class="brand-tag">Split & Multi-Split</span>
+            <span class="brand-tag">VRV / VRF</span>
+            <span class="brand-tag">Inverter DC</span>
+            <span class="brand-tag">R-32 Ecológico</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOYOTOMI -->
+      <div class="brand-card brand-toyotomi">
+        <div class="brand-head">
+          <div>
+            <div class="brand-logo-name">TOYOTOMI</div>
+            <div class="brand-logo-sub" style="color:rgba(255,255,255,.8)">Innovation for comfort · Japan</div>
+          </div>
+          <span class="brand-cert-pill">Instalador Certificado</span>
+        </div>
+        <div class="brand-body">
+          <p class="brand-desc">
+            Referência japonesa em climatização de qualidade e preço acessível. Compressores fiáveis, silenciosos e fáceis de usar.
+            Instalação e assistência técnica certificada em todos os modelos.
+          </p>
+          <div class="brand-tags">
+            <span class="brand-tag">Qualidade Japonesa</span>
+            <span class="brand-tag">Preço Competitivo</span>
+            <span class="brand-tag">Inverter</span>
+            <span class="brand-tag">WiFi Ready</span>
+            <span class="brand-tag">Ultra Silencioso</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     REVIEWS
+═══════════════════════════════════════ -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="sec-head center fade-up">
+      <span class="eyebrow">Avaliações</span>
+      <h2 class="h2">O que dizem os nossos clientes</h2>
+    </div>
+
+    <div class="google-widget fade-up">
+      <div class="g-widget-inner">
+        <div class="g-logo">
+          <div class="g-circle"><span>G</span></div>
+          <div>
+            <div class="g-biz-name">AirTech — Ar Condicionado</div>
+            <div class="g-biz-sub">Google Business Profile · Verificado</div>
+          </div>
+        </div>
+        <div class="g-num">4.9</div>
+        <div class="g-stars">★★★★★</div>
+        <div class="g-count">Baseado em <a href="#">87 avaliações verificadas</a> no Google</div>
+      </div>
+    </div>
+
+    <div class="rev-grid">
+
+      <div class="rev-card fade-up">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Serviço impecável do início ao fim. Técnico pontual, explicou tudo com calma, instalação limpa e rápida. O preço ficou exactamente como orçamentado. Recomendo a toda a gente."</p>
+        <div class="rev-author">
+          <div class="rev-avatar">JF</div>
+          <div>
+            <div class="rev-name">João Ferreira</div>
+            <div class="rev-meta">Coimbra · há 2 semanas</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rev-card fade-up">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"O ar avariou num sábado à tarde — ligámos e em menos de 2 horas estava resolvido. Preço justo, técnico muito simpático. Ficámos muito satisfeitos e já recomendámos a amigos!"</p>
+        <div class="rev-author">
+          <div class="rev-avatar">MS</div>
+          <div>
+            <div class="rev-name">Maria Santos</div>
+            <div class="rev-meta">Aveiro · há 1 mês</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rev-card fade-up">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Instalaram 3 splits em casa nova. Trabalho excelente, muito cuidados com a obra. Profissionais a 100%. É a única empresa que chamarei de agora em diante. Muito obrigado!"</p>
+        <div class="rev-author">
+          <div class="rev-avatar">RC</div>
+          <div>
+            <div class="rev-name">Rui Costa</div>
+            <div class="rev-meta">Leiria · há 3 semanas</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="rev-cta fade-up">
+      <a href="https://g.page/airtech" target="_blank" class="btn btn-primary btn-lg">
+        Ver todas as avaliações no Google →
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     CTA BAND
+═══════════════════════════════════════ -->
+<section id="cta">
+  <div class="wrap">
+    <div class="cta-inner fade-up">
+      <span class="eyebrow eyebrow-white">Pronto para começar?</span>
+      <h2 class="display">Orçamento gratuito.<br>Resposta em minutos.</h2>
+      <p class="lead lead-white" style="margin-top:22px;font-size:19px">
+        Sem compromisso. Sem surpresas.<br>Apenas um técnico a resolver o seu problema.
+      </p>
+      <div class="cta-btns">
+        <button class="btn btn-primary btn-lg" onclick="goTo('contact')">
+          Pedir Orçamento Agora →
+        </button>
+        <a href="tel:+351239000000" class="btn btn-ghost btn-lg">
+          📞 +351 239 000 000
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     CONTACT / FORM
+═══════════════════════════════════════ -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+
+      <!-- Aside -->
+      <div class="contact-aside fade-up">
+        <span class="eyebrow">Contacto</span>
+        <h2 class="h2">Fale connosco<br>hoje mesmo</h2>
+        <p class="lead">
+          Preencha o formulário e recebe um orçamento fixo em menos de 2 horas.
+          Ou contacte-nos directamente:
+        </p>
+
+        <div class="contact-list">
+          <div class="c-item">
+            <div class="c-item-icon">📞</div>
+            <div>
+              <div class="c-item-lbl">Telefone</div>
+              <a href="tel:+351239000000" class="c-item-val">+351 239 000 000</a>
+              <div class="c-item-sub">● Disponível 24 horas por dia</div>
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-item-icon">💬</div>
+            <div>
+              <div class="c-item-lbl">WhatsApp</div>
+              <a href="https://wa.me/351239000000" target="_blank" class="c-item-val">Enviar mensagem</a>
+              <div class="c-item-sub2">Resposta em menos de 5 minutos</div>
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-item-icon">✉️</div>
+            <div>
+              <div class="c-item-lbl">Email</div>
+              <a href="mailto:info@airtech.pt" class="c-item-val">info@airtech.pt</a>
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-item-icon">📍</div>
+            <div>
+              <div class="c-item-lbl">Zona de Actuação</div>
+              <div class="c-item-val" style="font-size:14px;font-weight:500">
+                Coimbra · Aveiro · Viseu<br>Leiria · Castelo Branco
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="fade-up">
+        <div class="form-card">
+          <h3 class="form-card-title">Pedir Orçamento Gratuito</h3>
+          <p class="form-card-sub">Resposta garantida em menos de 2 horas. Sem compromisso.</p>
+
+          <form id="quoteForm" onsubmit="handleForm(event)">
+            <div class="f-row">
+              <div class="f-grp">
+                <label>Nome *</label>
+                <input type="text" placeholder="O seu nome completo" required/>
+              </div>
+              <div class="f-grp">
+                <label>Telefone *</label>
+                <input type="tel" placeholder="+351 XXX XXX XXX" required/>
+              </div>
+            </div>
+            <div class="f-grp">
+              <label>Email</label>
+              <input type="email" placeholder="email@exemplo.pt"/>
+            </div>
+            <div class="f-row">
+              <div class="f-grp">
+                <label>Código Postal *</label>
+                <input type="text" placeholder="3000-000" required/>
+              </div>
+              <div class="f-grp">
+                <label>Tipo de Serviço *</label>
+                <select required>
+                  <option value="">Seleccionar...</option>
+                  <option>Instalação de A/C</option>
+                  <option>Manutenção Preventiva</option>
+                  <option>Reparação / Avaria</option>
+                  <option>Assistência Urgente</option>
+                  <option>Outro</option>
+                </select>
+              </div>
+            </div>
+            <div class="f-grp">
+              <label>Detalhes adicionais</label>
+              <textarea placeholder="Ex: Quantas divisões, marca do equipamento, descrição do problema..."></textarea>
+            </div>
+            <div class="f-privacy">
+              <span>🔒</span>
+              Os seus dados são confidenciais e nunca partilhados com terceiros.
+            </div>
+            <button type="submit" class="btn btn-primary btn-block f-submit" id="submitBtn">
+              Enviar Pedido de Orçamento →
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+
+      <div class="ft-brand">
+        <span class="ft-logo">Air<em>Tech</em></span>
+        <p class="ft-tagline">
+          Especialistas em ar condicionado na Zona Centro de Portugal.
+          Instalação, manutenção e reparação com técnicos certificados F-GAS, desde 2024.
+        </p>
+        <div class="ft-socials">
+          <a class="ft-social" href="https://wa.me/351239000000" target="_blank" title="WhatsApp">💬</a>
+          <a class="ft-social" href="tel:+351239000000" title="Ligar">📞</a>
+          <a class="ft-social" href="mailto:info@airtech.pt" title="Email">✉️</a>
+        </div>
+      </div>
+
+      <div class="ft-col">
+        <h4>Serviços</h4>
+        <ul>
+          <li><a onclick="goTo('services')">Instalação de A/C</a></li>
+          <li><a onclick="goTo('services')">Manutenção Preventiva</a></li>
+          <li><a onclick="goTo('services')">Reparação & Urgências</a></li>
+          <li><a onclick="goTo('brands')">Marcas Parceiras</a></li>
+        </ul>
+      </div>
+
+      <div class="ft-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a onclick="goTo('why')">Sobre Nós</a></li>
+          <li><a onclick="goTo('reviews')">Avaliações</a></li>
+          <li><a onclick="goTo('process')">Como Trabalhamos</a></li>
+          <li><a onclick="goTo('contact')">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="ft-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="tel:+351239000000">+351 239 000 000</a></li>
+          <li><a href="mailto:info@airtech.pt">info@airtech.pt</a></li>
+          <li>
+            <span style="font-size:13px;color:rgba(255,255,255,.3);line-height:1.8">
+              Coimbra · Aveiro · Viseu<br>Leiria · Castelo Branco
+            </span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bar">
+      <span class="ft-copy">© <span id="yr"></span> AirTech — Ar Condicionado. Todos os direitos reservados.</span>
+      <div class="ft-rating">
+        <span class="ft-stars">★★★★★</span>
+        4.9 no Google · 87 avaliações verificadas
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════
+     WHATSAPP FLOAT
+═══════════════════════════════════════ -->
+<a class="wa-btn" href="https://wa.me/351239000000" target="_blank" title="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+
+<script>
+/* ─── YEAR ─── */
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ─── NAVBAR SCROLL ─── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 48);
+}, { passive: true });
+
+/* ─── HERO PARALLAX + LOAD ANIMATION ─── */
+window.addEventListener('load', () => {
+  document.getElementById('hero').classList.add('loaded');
+});
+
+/* ─── MOBILE MENU ─── */
+function toggleMenu() {
+  document.getElementById('ham').classList.toggle('open');
+  document.getElementById('drawer').classList.toggle('open');
+  document.body.style.overflow =
+    document.getElementById('drawer').classList.contains('open') ? 'hidden' : '';
+}
+function closeMenu() {
+  document.getElementById('ham').classList.remove('open');
+  document.getElementById('drawer').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ─── SMOOTH SCROLL TO SECTION ─── */
+function goTo(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const offset = 80;
+  const top = el.getBoundingClientRect().top + window.scrollY - offset;
+  window.scrollTo({ top, behavior: 'smooth' });
+}
+
+/* ─── INTERSECTION OBSERVER ─── */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+
+document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+
+/* ─── STAGGER CARDS ─── */
+['.services-grid', '.rev-grid', '.why-feats', '.process-grid'].forEach(sel => {
+  document.querySelectorAll(`${sel} .fade-up`).forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.09}s`;
+  });
+});
+
+/* ─── FORM SUBMIT ─── */
+function handleForm(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  btn.textContent = '✓ Pedido enviado! Entraremos em contacto em breve.';
+  btn.style.background = '#059669';
+  btn.style.cursor = 'default';
+  btn.disabled = true;
+}
+</script>
+
+</body>
+</html>

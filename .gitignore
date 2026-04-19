@@ -3,3 +3,8 @@ imagens/*.htm
 imagens/*.html
 imagens/toyotomi logo_files/
 imagens/descarregar.htm
+
+# Claude internal files
+.claude/
+claudeexpert.md
+

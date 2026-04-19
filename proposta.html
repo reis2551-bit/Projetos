@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Proposta Digital — AirTech | Studio Web</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0 }
+html { font-size:10pt }
+body { font-family:'Inter',sans-serif; color:#0F172A; background:#fff; -webkit-print-color-adjust:exact; print-color-adjust:exact }
+a { text-decoration:none; color:inherit }
+img { display:block; max-width:100% }
+
+/* ── TOKENS ── */
+:root {
+  --navy:   #0B1629;
+  --blue:   #0369A1;
+  --accent: #0EA5E9;
+  --green:  #059669;
+  --orange: #EA580C;
+  --text:   #0F172A;
+  --text2:  #334155;
+  --muted:  #64748B;
+  --border: #E2E8F0;
+  --bg2:    #F8FAFC;
+}
+
+/* ── PAGE SETUP ── */
+@page {
+  size: A4;
+  margin: 0;
+}
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+.page:last-child { page-break-after: avoid }
+
+/* ── COVER ── */
+.cover {
+  background: linear-gradient(145deg, #0B1629 0%, #0F2847 55%, #0369A1 100%);
+  min-height: 297mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content:'';
+  position:absolute; top:-80px; right:-80px;
+  width:380px; height:380px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(14,165,233,.18) 0%, transparent 70%);
+}
+.cover::after {
+  content:'';
+  position:absolute; bottom:-60px; left:-60px;
+  width:280px; height:280px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(5,150,105,.15) 0%, transparent 70%);
+}
+.cover-agency {
+  padding: 18mm 18mm 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.cover-agency-dot {
+  width:10px; height:10px; border-radius:50%;
+  background: linear-gradient(135deg, #0EA5E9, #059669);
+}
+.cover-agency-name {
+  font-size: 12pt; font-weight: 700; letter-spacing:.04em;
+  color: rgba(255,255,255,.9);
+  text-transform: uppercase;
+}
+.cover-body {
+  padding: 0 18mm;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.cover-label {
+  font-size:8.5pt; font-weight:700; letter-spacing:.15em; text-transform:uppercase;
+  color: rgba(255,255,255,.5);
+  margin-bottom: 14px;
+  display:flex; align-items:center; gap:10px;
+}
+.cover-label::before {
+  content:'';
+  display:inline-block; width:24px; height:1.5px;
+  background: rgba(255,255,255,.4);
+}
+.cover-h1 {
+  font-size: 36pt; font-weight: 900; line-height: 1.1;
+  color: #fff;
+  margin-bottom: 18px;
+}
+.cover-h1 span { color: #0EA5E9 }
+.cover-desc {
+  font-size: 11pt; font-weight: 400; line-height: 1.7;
+  color: rgba(255,255,255,.7);
+  max-width: 130mm;
+  margin-bottom: 32px;
+}
+.cover-pills {
+  display:flex; gap:10px; flex-wrap:wrap;
+}
+.cover-pill {
+  padding:6px 14px; border-radius:100px;
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15);
+  font-size:8.5pt; font-weight:600; color:rgba(255,255,255,.75);
+}
+.cover-footer {
+  padding: 10mm 18mm;
+  display:flex; justify-content:space-between; align-items:flex-end;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+.cover-client-label { font-size:7.5pt; color:rgba(255,255,255,.4); font-weight:500; text-transform:uppercase; letter-spacing:.1em; margin-bottom:4px }
+.cover-client-name  { font-size:14pt; font-weight:800; color:#fff }
+.cover-meta { text-align:right; font-size:8pt; color:rgba(255,255,255,.4); line-height:1.8 }
+
+/* ── INNER PAGES ── */
+.inner {
+  min-height: 297mm;
+  padding: 14mm 18mm;
+  display: flex;
+  flex-direction: column;
+}
+.inner-header {
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom: 10mm;
+  padding-bottom: 5mm;
+  border-bottom: 1px solid var(--border);
+}
+.ih-logo {
+  display:flex; align-items:center; gap:8px;
+}
+.ih-dot { width:8px; height:8px; border-radius:50%; background:linear-gradient(135deg,#0EA5E9,#059669) }
+.ih-name { font-size:9pt; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.08em }
+.ih-section { font-size:8pt; font-weight:600; color:var(--accent); text-transform:uppercase; letter-spacing:.1em }
+.ih-pg { font-size:8pt; color:var(--muted) }
+
+/* ── SECTION TITLE BLOCK ── */
+.sec-title-block { margin-bottom: 8mm }
+.stb-eyebrow {
+  font-size:8pt; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+  color: var(--accent); margin-bottom:5px;
+}
+.stb-h2 {
+  font-size: 20pt; font-weight: 900; color: var(--navy); line-height:1.2;
+  margin-bottom: 7px;
+}
+.stb-lead {
+  font-size: 10pt; line-height: 1.65; color: var(--text2); max-width: 145mm;
+}
+
+/* ── INDEX PAGE ── */
+.index-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:4mm;
+  margin-top: 8mm;
+}
+.index-item {
+  display:flex; gap:10px; align-items:flex-start;
+  padding:5mm; border-radius:10px; background:var(--bg2);
+  border:1px solid var(--border);
+}
+.index-num {
+  width:28px; height:28px; border-radius:8px;
+  background:linear-gradient(135deg, var(--navy), var(--blue));
+  color:#fff; font-size:11pt; font-weight:800;
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+}
+.index-text h4 { font-size:9.5pt; font-weight:700; color:var(--navy); margin-bottom:2px }
+.index-text p  { font-size:8pt; color:var(--muted); line-height:1.5 }
+
+/* ── MOCKUP FRAMES ── */
+.mockup-browser {
+  border-radius:10px; overflow:hidden;
+  border:1px solid var(--border);
+  box-shadow:0 8px 32px rgba(0,0,0,.10);
+  margin-bottom:5mm;
+}
+.mb-bar {
+  background:#F1F5F9; padding:7px 12px;
+  display:flex; align-items:center; gap:6px;
+  border-bottom:1px solid var(--border);
+}
+.mb-dot { width:8px; height:8px; border-radius:50% }
+.mb-url {
+  flex:1; background:#fff; border-radius:5px; border:1px solid var(--border);
+  padding:3px 8px; font-size:7pt; color:var(--muted); margin:0 8px;
+}
+.mb-body { background:#fff }
+
+/* ── SECTION MOCKUPS ── */
+.mock-hero {
+  background:linear-gradient(135deg, #0B1629 0%, #0F2847 60%, #1e4080 100%);
+  padding:16px 20px;
+  display:grid; grid-template-columns:1.2fr .8fr; gap:20px; align-items:center;
+  min-height:52mm;
+  position:relative;
+  overflow:hidden;
+}
+.mock-hero::after {
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(135deg, transparent 40%, rgba(14,165,233,.08));
+}
+.mock-hero-left { position:relative; z-index:1 }
+.mock-badge {
+  display:inline-flex; align-items:center; gap:5px;
+  background:rgba(5,150,105,.2); border:1px solid rgba(5,150,105,.4);
+  border-radius:100px; padding:3px 9px; margin-bottom:8px;
+}
+.mock-badge span { font-size:6.5pt; color:#34D399; font-weight:600 }
+.mock-h1-line { height:7px; border-radius:3px; background:#fff; margin-bottom:4px }
+.mock-h1-line.s { width:70%; background:rgba(255,255,255,.6) }
+.mock-h1-line.m { width:90% }
+.mock-sub-line { height:4px; border-radius:2px; background:rgba(255,255,255,.3); margin-bottom:3px }
+.mock-sub-line.w { width:80% }
+.mock-cta-row { display:flex; gap:6px; margin-top:10px }
+.mock-btn-green {
+  padding:6px 12px; border-radius:7px;
+  background:linear-gradient(135deg,#059669,#047857);
+  font-size:6pt; font-weight:700; color:#fff;
+  display:flex; align-items:center; gap:4px;
+}
+.mock-btn-outline {
+  padding:6px 12px; border-radius:7px;
+  border:1px solid rgba(255,255,255,.3);
+  font-size:6pt; font-weight:600; color:rgba(255,255,255,.8);
+}
+.mock-form {
+  position:relative; z-index:1;
+  background:rgba(255,255,255,.10);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:10px; padding:12px;
+}
+.mock-form-title { font-size:7pt; font-weight:800; color:#fff; margin-bottom:3px }
+.mock-form-sub   { font-size:5.5pt; color:rgba(255,255,255,.6); margin-bottom:8px }
+.mock-input {
+  width:100%; height:14px; border-radius:5px;
+  background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2);
+  margin-bottom:5px;
+}
+.mock-input-row { display:grid; grid-template-columns:1fr 1fr; gap:5px; margin-bottom:5px }
+.mock-submit {
+  width:100%; height:22px; border-radius:6px;
+  background:linear-gradient(135deg,#059669,#047857);
+  display:flex; align-items:center; justify-content:center;
+}
+.mock-submit span { font-size:5.5pt; font-weight:700; color:#fff }
+
+.mock-proof {
+  background:var(--navy);
+  padding:8px 20px;
+  display:flex; gap:16px; justify-content:space-around;
+}
+.mock-stat { text-align:center }
+.mock-stat-n { font-size:9pt; font-weight:900; color:#fff }
+.mock-stat-l { font-size:5.5pt; color:rgba(255,255,255,.5) }
+
+.mock-services {
+  background:#fff; padding:16px 20px;
+}
+.mock-services-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:10px;
+}
+.mock-svc-card {
+  border-radius:8px; overflow:hidden;
+  border:1px solid var(--border);
+}
+.mock-svc-img {
+  height:22mm; display:flex; align-items:center; justify-content:center;
+  font-size:18pt;
+}
+.mock-svc-body { padding:8px }
+.mock-svc-t { font-size:7pt; font-weight:700; color:var(--navy); margin-bottom:3px }
+.mock-svc-d { height:3px; border-radius:2px; background:var(--border); margin-bottom:2px }
+.mock-svc-d.s { width:70% }
+.mock-svc-btn { margin-top:6px; height:18px; border-radius:5px; background:var(--blue); display:flex; align-items:center; justify-content:center }
+.mock-svc-btn span { font-size:5.5pt; color:#fff; font-weight:600 }
+
+.mock-carousel {
+  background:#F8FAFC; padding:16px 20px;
+}
+.mock-car-track { display:grid; grid-template-columns:repeat(4,1fr); gap:5px; margin-top:10px }
+.mock-car-item {
+  aspect-ratio:4/3; border-radius:6px; overflow:hidden;
+  background:var(--border);
+}
+.mock-car-item img { width:100%; height:100%; object-fit:cover }
+
+.mock-reviews {
+  background:#fff; padding:16px 20px;
+}
+.mock-rev-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-top:10px }
+.mock-rev-card {
+  border-radius:8px; padding:8px; border:1px solid var(--border);
+  background:var(--bg2);
+}
+.mock-rev-stars { font-size:8pt; margin-bottom:4px }
+.mock-rev-line  { height:3px; border-radius:2px; background:var(--border); margin-bottom:2px }
+.mock-rev-author { height:3px; border-radius:2px; background:rgba(0,0,0,.15); width:50%; margin-top:5px }
+
+.mock-footer {
+  background:var(--navy); padding:12px 20px;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:12px;
+}
+.mock-ft-col {}
+.mock-ft-title { height:5px; border-radius:2px; background:#fff; width:40%; margin-bottom:6px }
+.mock-ft-line  { height:3px; border-radius:2px; background:rgba(255,255,255,.2); margin-bottom:3px }
+.mock-ft-line.s { width:60% }
+
+/* ── EXPLANATION BLOCKS ── */
+.explain-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:5mm;
+}
+.explain-card {
+  border-radius:10px; padding:5mm;
+  border:1px solid var(--border);
+  background:#fff;
+}
+.explain-card.accent-green { border-left:3px solid var(--green) }
+.explain-card.accent-blue  { border-left:3px solid var(--blue) }
+.explain-card.accent-orange { border-left:3px solid var(--orange) }
+.explain-card.accent-navy  { border-left:3px solid var(--navy) }
+.ec-icon { font-size:18pt; margin-bottom:4px }
+.ec-title { font-size:9.5pt; font-weight:800; color:var(--navy); margin-bottom:4px }
+.ec-text  { font-size:8pt; line-height:1.6; color:var(--text2) }
+.ec-kpi {
+  display:inline-flex; align-items:center; gap:5px;
+  margin-top:7px; padding:3px 9px; border-radius:100px;
+  background:var(--bg2); border:1px solid var(--border);
+  font-size:7.5pt; font-weight:700; color:var(--text2);
+}
+
+/* ── CONVERSION FLOW ── */
+.cf-steps {
+  display:flex; align-items:flex-start; gap:0; margin:6mm 0;
+}
+.cf-step { flex:1; position:relative }
+.cf-step::after {
+  content:'→';
+  position:absolute; right:-8px; top:14px;
+  font-size:14pt; color:var(--border); z-index:1;
+}
+.cf-step:last-child::after { display:none }
+.cf-step-inner {
+  margin-right:16px; border-radius:10px; padding:4mm;
+  border:1px solid var(--border); background:var(--bg2);
+  text-align:center;
+}
+.cf-step-num {
+  width:28px; height:28px; border-radius:50%;
+  background:linear-gradient(135deg,var(--navy),var(--blue));
+  color:#fff; font-size:10pt; font-weight:800;
+  display:flex; align-items:center; justify-content:center;
+  margin:0 auto 5px;
+}
+.cf-step-t { font-size:8.5pt; font-weight:700; color:var(--navy); margin-bottom:3px }
+.cf-step-d { font-size:7pt; color:var(--muted); line-height:1.5 }
+
+/* ── METRIC CARDS ── */
+.metrics-row {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:4mm; margin:6mm 0;
+}
+.metric-card {
+  border-radius:10px; padding:4mm;
+  background:linear-gradient(135deg, var(--navy) 0%, #0F2847 100%);
+  color:#fff; text-align:center;
+}
+.metric-n { font-size:18pt; font-weight:900; color:#fff }
+.metric-n span { font-size:11pt }
+.metric-l { font-size:7pt; color:rgba(255,255,255,.55); margin-top:2px; line-height:1.4 }
+
+/* ── TECH TABLE ── */
+.tech-table { width:100%; border-collapse:collapse; margin:6mm 0; font-size:8.5pt }
+.tech-table th {
+  background:var(--navy); color:#fff; font-weight:700; font-size:7.5pt;
+  padding:7px 10px; text-align:left; letter-spacing:.04em;
+}
+.tech-table th:first-child { border-radius:7px 0 0 0 }
+.tech-table th:last-child  { border-radius:0 7px 0 0 }
+.tech-table td { padding:7px 10px; border-bottom:1px solid var(--border); color:var(--text2) }
+.tech-table tr:last-child td { border-bottom:none }
+.tech-table tr:nth-child(even) td { background:var(--bg2) }
+.badge-yes { display:inline-flex; align-items:center; gap:4px; color:var(--green); font-weight:700 }
+.badge-yes::before { content:'✓' }
+
+/* ── QUOTE PAGE ── */
+.quote-page {
+  background:linear-gradient(145deg, #0B1629 0%, #0F2847 60%, #0369A1 100%);
+  min-height:297mm;
+  display:flex; flex-direction:column;
+  justify-content:center; align-items:center;
+  padding:18mm;
+  text-align:center;
+  position:relative; overflow:hidden;
+}
+.quote-page::before {
+  content:'';
+  position:absolute; top:-100px; left:50%; transform:translateX(-50%);
+  width:500px; height:500px; border-radius:50%;
+  background:radial-gradient(circle, rgba(14,165,233,.12) 0%, transparent 65%);
+}
+.qp-label { font-size:8pt; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:rgba(255,255,255,.5); margin-bottom:14px }
+.qp-quote {
+  font-size:24pt; font-weight:900; line-height:1.25; color:#fff;
+  margin-bottom:18px; max-width:140mm; position:relative; z-index:1;
+}
+.qp-quote span { color:#0EA5E9 }
+.qp-sub { font-size:11pt; color:rgba(255,255,255,.65); line-height:1.7; max-width:120mm; margin-bottom:40px }
+.qp-divider { width:48px; height:2px; background:rgba(255,255,255,.2); margin:0 auto 40px }
+.qp-cta-box {
+  background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.15);
+  border-radius:16px; padding:8mm 14mm; position:relative; z-index:1;
+}
+.qp-cta-box h3 { font-size:13pt; font-weight:800; color:#fff; margin-bottom:6px }
+.qp-cta-box p  { font-size:9pt; color:rgba(255,255,255,.6); margin-bottom:16px }
+.qp-cta-items  { display:flex; gap:20px; justify-content:center; flex-wrap:wrap }
+.qp-cta-item   { display:flex; align-items:center; gap:8px }
+.qp-cta-icon   { font-size:14pt }
+.qp-cta-info h4 { font-size:9.5pt; font-weight:700; color:#fff }
+.qp-cta-info p  { font-size:8pt; color:rgba(255,255,255,.5) }
+
+/* ── FOOTER STRIP ── */
+.page-footer {
+  margin-top:auto; padding-top:5mm;
+  border-top:1px solid var(--border);
+  display:flex; justify-content:space-between; align-items:center;
+  font-size:7.5pt; color:var(--muted);
+}
+
+/* ── FULL-WIDTH HIGHLIGHT ── */
+.highlight-box {
+  border-radius:12px; padding:6mm 7mm; margin:5mm 0;
+  background:linear-gradient(135deg, #0B1629, #0F2847);
+  color:#fff;
+}
+.highlight-box h3 { font-size:12pt; font-weight:800; margin-bottom:5px }
+.highlight-box p  { font-size:8.5pt; line-height:1.65; color:rgba(255,255,255,.72) }
+.highlight-box.light {
+  background:var(--bg2); color:var(--text);
+  border:1px solid var(--border);
+}
+.highlight-box.light h3 { color:var(--navy) }
+.highlight-box.light p  { color:var(--text2) }
+
+/* ── CHECKLIST ── */
+.checklist { margin:4mm 0; display:grid; grid-template-columns:1fr 1fr; gap:2mm }
+.cli { display:flex; gap:8px; align-items:flex-start; font-size:8.5pt; color:var(--text2) }
+.cli::before { content:'✓'; color:var(--green); font-weight:800; flex-shrink:0; margin-top:1px }
+
+/* ── PRINT ── */
+@media print {
+  body { background:#fff }
+  .page { width:210mm; page-break-after:always }
+  .page:last-child { page-break-after:avoid }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════
+     PÁGINA 1 — CAPA
+══════════════════════════════════ -->
+<div class="page">
+  <div class="cover">
+    <div class="cover-agency">
+      <div class="cover-agency-dot"></div>
+      <div class="cover-agency-name">Studio Web · Proposta Digital</div>
+    </div>
+
+    <div class="cover-body">
+      <div class="cover-label">Proposta de Presença Digital</div>
+      <h1 class="cover-h1">
+        O vosso site.<br>
+        Construído para<br>
+        <span>converter.</span>
+      </h1>
+      <p class="cover-desc">
+        Desenvolvemos um website de alta conversão para a AirTech — desenhado estrategicamente para transformar visitantes em pedidos de orçamento, com cada detalhe fundamentado em dados de comportamento do consumidor e boas práticas de UX.
+      </p>
+      <div class="cover-pills">
+        <div class="cover-pill">Landing Page CRO</div>
+        <div class="cover-pill">Mobile-First</div>
+        <div class="cover-pill">WhatsApp Integrado</div>
+        <div class="cover-pill">SEO Técnico</div>
+        <div class="cover-pill">Zero Dependências</div>
+      </div>
+    </div>
+
+    <div class="cover-footer">
+      <div>
+        <div class="cover-client-label">Preparado para</div>
+        <div class="cover-client-name">AirTech — Ar Condicionado</div>
+      </div>
+      <div class="cover-meta">
+        Proposta confidencial<br>
+        Abril 2026<br>
+        v1.0
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════
+     PÁGINA 2 — ÍNDICE + VISÃO GERAL
+══════════════════════════════════ -->
+<div class="page">
+  <div class="inner">
+    <div class="inner-header">
+      <div class="ih-logo"><div class="ih-dot"></div><div class="ih-name">Studio Web</div></div>
+      <div class="ih-section">Índice</div>
+      <div class="ih-pg">01</div>
+    </div>
+
+    <div class="sec-title-block">
+      <div class="stb-eyebrow">Conteúdo deste documento</div>
+      <h2 class="stb-h2">O que vais encontrar aqui</h2>
+      <p class="stb-lead">
+        Este documento apresenta a estratégia, as decisões de design e as escolhas técnicas por trás do vosso novo website — explicadas em linguagem clara, com o foco no impacto que terão no vosso negócio.
+      </p>
+    </div>
+
+    <div class="index-grid">
+      <div class="index-item">
+        <div class="index-num">1</div>
+        <div class="index-text">
+          <h4>Estratégia de Conversão</h4>
+          <p>Por que cada elemento existe e que problema resolve para o negócio.</p>
+        </div>
+      </div>
+      <div class="index-item">
+        <div class="index-num">2</div>
+        <div class="index-text">
+          <h4>Hero Section</h4>
+          <p>A primeira impressão que capta a atenção e converte nos primeiros 5 segundos.</p>
+        </div>
+      </div>
+      <div class="index-item">
+        <div class="index-num">3</div>
+        <div class="index-text">
+          <h4>Prova Social e Confiança</h4>
+          <p>Avaliações reais, portfólio e certificações que reduzem a hesitação de compra.</p>
+        </div>
+      </div>
+      <div class="index-item">
+        <div class="index-num">4</div>
+        <div class="index-text">
+          <h4>Serviços e Conteúdo</h4>
+          <p>Secções de serviços e FAQs otimizadas para SEO e resposta a objeções.</p>
+        </div>
+      </div>
+      <div class="index-item">
+        <div class="index-num">5</div>
+        <div class="index-text">
+          <h4>Jornada do Utilizador Mobile</h4>
+          <p>Como o site guia um visitante de telemóvel até ao contacto em menos de 3 toques.</p>
+        </div>
+      </div>
+      <div class="index-item">
+        <div class="index-num">6</div>
+        <div class="index-text">
+          <h4>Técnica e Desempenho</h4>
+          <p>Arquitectura zero-dependências, velocidade e o que isso significa na prática.</p>
+        </div>
+      </div>
+      <div class="index-item">
+        <div class="index-num">7</div>
+        <div class="index-text">
+          <h4>Próximos Passos</h4>
+          <p>O que entregar ao cliente para pôr o site em produção de forma completa.</p>
+        </div>
+      </div>
+      <div class="index-item">
+        <div class="index-num">8</div>
+        <div class="index-text">
+          <h4>Resumo Executivo</h4>
+          <p>Os números que importam e o argumento de valor para a AirTech.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlight-box" style="margin-top:auto">
+      <h3>A premissa central deste projecto</h3>
+      <p>Um website de serviços locais não precisa de ser bonito. Precisa de converter. Cada decisão — da cor de um botão à ordem das secções — foi tomada com um único objetivo: que quem chega ao site saia com um pedido de orçamento enviado ou uma chamada feita.</p>
+    </div>
+
+    <div class="page-footer">
+      <span>AirTech · Proposta Digital 2026</span>
+      <span>Confidencial</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════
+     PÁGINA 3 — ESTRATÉGIA DE CONVERSÃO
+══════════════════════════════════ -->
+<div class="page">
+  <div class="inner">
+    <div class="inner-header">
+      <div class="ih-logo"><div class="ih-dot"></div><div class="ih-name">Studio Web</div></div>
+      <div class="ih-section">Estratégia</div>
+      <div class="ih-pg">02</div>
+    </div>
+
+    <div class="sec-title-block">
+      <div class="stb-eyebrow">Fundação estratégica</div>
+      <h2 class="stb-h2">Construído para gerar contactos</h2>
+      <p class="stb-lead">
+        A maioria dos websites de serviços é uma brochura digital. O da AirTech é uma máquina de geração de leads — com fluxo de conversão definido, múltiplos pontos de contacto e urgência incorporada.
+      </p>
+    </div>
+
+    <div class="cf-steps">
+      <div class="cf-step">
+        <div class="cf-step-inner">
+          <div class="cf-step-num">1</div>
+          <div class="cf-step-t">Atenção</div>
+          <div class="cf-step-d">Barra de urgência + headline direto nos primeiros 3 segundos</div>
+        </div>
+      </div>
+      <div class="cf-step">
+        <div class="cf-step-inner">
+          <div class="cf-step-num">2</div>
+          <div class="cf-step-t">Confiança</div>
+          <div class="cf-step-d">Estatísticas, certificações, avaliações reais</div>
+        </div>
+      </div>
+      <div class="cf-step">
+        <div class="cf-step-inner">
+          <div class="cf-step-num">3</div>
+          <div class="cf-step-t">Interesse</div>
+          <div class="cf-step-d">Portfólio, FAQs, detalhe dos serviços</div>
+        </div>
+      </div>
+      <div class="cf-step">
+        <div class="cf-step-inner">
+          <div class="cf-step-num">4</div>
+          <div class="cf-step-t">Acção</div>
+          <div class="cf-step-d">WhatsApp (1 toque) ou formulário no hero</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="explain-grid">
+      <div class="explain-card accent-orange">
+        <div class="ec-icon">⏰</div>
+        <div class="ec-title">Barra de Urgência no topo</div>
+        <div class="ec-text">A frase "Apenas 3 vagas disponíveis esta semana" cria escassez percebida, um dos gatilhos psicológicos mais eficazes em marketing. Visitantes que não se sentem pressionados adiam a decisão — e raramente voltam.</div>
+        <div class="ec-kpi">↑ Taxa de contacto imediato</div>
+      </div>
+      <div class="explain-card accent-green">
+        <div class="ec-icon">💬</div>
+        <div class="ec-title">WhatsApp como CTA principal</div>
+        <div class="ec-text">Estudos de serviços locais mostram que o WhatsApp converte 3–4× mais do que formulários. É familiar, instantâneo e sem fricção. A mensagem pré-preenchida elimina o "não sei o que escrever", reduzindo o abandono.</div>
+        <div class="ec-kpi">3–4× conversão vs. formulário</div>
+      </div>
+      <div class="explain-card accent-blue">
+        <div class="ec-icon">📌</div>
+        <div class="ec-title">Navbar fixa com telefone visível</div>
+        <div class="ec-text">O número de telefone e o botão de WhatsApp estão sempre visíveis no topo, independentemente de onde o utilizador estiver na página. Elimina a necessidade de procurar o contacto — um atrito silencioso que perde clientes.</div>
+        <div class="ec-kpi">Contacto sempre a 0 cliques</div>
+      </div>
+      <div class="explain-card accent-navy">
+        <div class="ec-icon">🔁</div>
+        <div class="ec-title">Múltiplos CTAs ao longo da página</div>
+        <div class="ec-text">Existem botões de acção após cada secção de serviço, a meio da página e no final. Diferentes utilizadores tomam decisões em momentos diferentes — garantir que há sempre um CTA acessível no momento de decisão é fundamental.</div>
+        <div class="ec-kpi">7+ pontos de conversão</div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>AirTech · Proposta Digital 2026</span>
+      <span>Confidencial</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════
+     PÁGINA 4 — HERO SECTION (MOCKUP)
+══════════════════════════════════ -->
+<div class="page">
+  <div class="inner">
+    <div class="inner-header">
+      <div class="ih-logo"><div class="ih-dot"></div><div class="ih-name">Studio Web</div></div>
+      <div class="ih-section">Hero Section</div>
+      <div class="ih-pg">03</div>
+    </div>
+
+    <div class="sec-title-block">
+      <div class="stb-eyebrow">A primeira impressão</div>
+      <h2 class="stb-h2">Os primeiros 5 segundos decidem tudo</h2>
+    </div>
+
+    <!-- HERO MOCKUP -->
+    <div class="mockup-browser">
+      <div class="mb-bar">
+        <div class="mb-dot" style="background:#FF5F57"></div>
+        <div class="mb-dot" style="background:#FFBD2E"></div>
+        <div class="mb-dot" style="background:#28C840"></div>
+        <div class="mb-url">airtech.pt</div>
+      </div>
+      <div class="mb-body">
+        <!-- urgency bar -->
+        <div style="background:#0369A1; padding:5px 16px; display:flex; align-items:center; justify-content:space-between">
+          <div style="font-size:6pt; color:rgba(255,255,255,.9); font-weight:600">⚡ Apenas 3 vagas disponíveis esta semana — resposta em menos de 2 horas</div>
+          <div style="font-size:5.5pt; color:rgba(255,255,255,.7)">Garantir vaga →</div>
+        </div>
+        <!-- navbar -->
+        <div style="background:#0B1629; padding:7px 16px; display:flex; align-items:center; justify-content:space-between">
+          <div style="font-size:8pt; font-weight:900; color:#fff; letter-spacing:.04em">AIR<span style="color:#0EA5E9">TECH</span></div>
+          <div style="display:flex; gap:10px; font-size:5.5pt; color:rgba(255,255,255,.65)">
+            <span>Serviços</span><span>Portfólio</span><span>Avaliações</span><span>FAQ</span>
+          </div>
+          <div style="display:flex; gap:6px; align-items:center">
+            <div style="font-size:6pt; color:#fff; font-weight:700">📞 937 058 834</div>
+            <div style="background:#25D366; border-radius:5px; padding:3px 7px; font-size:5.5pt; font-weight:700; color:#fff">WhatsApp</div>
+          </div>
+        </div>
+        <!-- hero -->
+        <div class="mock-hero">
+          <div class="mock-hero-left">
+            <div class="mock-badge">
+              <span>✓ F-GAS Certificado · +200 instalações</span>
+            </div>
+            <div class="mock-h1-line" style="width:95%; height:8px; margin-bottom:5px"></div>
+            <div class="mock-h1-line" style="width:80%; height:8px; margin-bottom:5px"></div>
+            <div class="mock-h1-line s" style="height:8px; margin-bottom:10px"></div>
+            <div class="mock-sub-line" style="width:90%"></div>
+            <div class="mock-sub-line w"></div>
+            <div class="mock-sub-line" style="width:60%"></div>
+            <div class="mock-cta-row">
+              <div class="mock-btn-green">💬 Falar no WhatsApp agora</div>
+              <div class="mock-btn-outline">📞 Ligar</div>
+            </div>
+          </div>
+          <div class="mock-form">
+            <div class="mock-form-title">Pedido de Orçamento Grátis</div>
+            <div class="mock-form-sub">Resposta em menos de 2 horas</div>
+            <div class="mock-input-row">
+              <div class="mock-input"></div>
+              <div class="mock-input"></div>
+            </div>
+            <div class="mock-input"></div>
+            <div class="mock-input"></div>
+            <div class="mock-submit"><span>Enviar pedido grátis →</span></div>
+          </div>
+        </div>
+        <!-- proof bar -->
+        <div class="mock-proof">
+          <div class="mock-stat"><div class="mock-stat-n">+200</div><div class="mock-stat-l">Instalações</div></div>
+          <div class="mock-stat"><div class="mock-stat-n">5★</div><div class="mock-stat-l">Google Rating</div></div>
+          <div class="mock-stat"><div class="mock-stat-n">&lt;2h</div><div class="mock-stat-l">Tempo resposta</div></div>
+          <div class="mock-stat"><div class="mock-stat-n">5 anos</div><div class="mock-stat-l">Garantia</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="explain-grid">
+      <div class="explain-card accent-blue">
+        <div class="ec-title">Formulário em vidro (glass morphism)</div>
+        <div class="ec-text">O formulário de orçamento está visível sem scroll, com fundo translúcido sobre a imagem do hero. Colocar a principal chamada à acção acima da dobra aumenta a taxa de preenchimento em estudos A/B em média 20–35%.</div>
+      </div>
+      <div class="explain-card accent-green">
+        <div class="ec-title">Headline em 3 camadas</div>
+        <div class="ec-text">Título emocional → subtítulo racional → prova social imediata (badge de certificação). Esta estrutura responde às 3 perguntas que o visitante faz: "Isto é para mim?", "Posso confiar?" e "Porquê estes?"</div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>AirTech · Proposta Digital 2026</span>
+      <span>Confidencial</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════
+     PÁGINA 5 — PROVA SOCIAL
+══════════════════════════════════ -->
+<div class="page">
+  <div class="inner">
+    <div class="inner-header">
+      <div class="ih-logo"><div class="ih-dot"></div><div class="ih-name">Studio Web</div></div>
+      <div class="ih-section">Prova Social</div>
+      <div class="ih-pg">04</div>
+    </div>
+
+    <div class="sec-title-block">
+      <div class="stb-eyebrow">Portfólio & avaliações</div>
+      <h2 class="stb-h2">Ver para crer — o motor de confiança</h2>
+      <p class="stb-lead">
+        A hesitação em contratar um serviço desconhecido é o maior obstáculo à conversão. O site elimina essa hesitação em três frentes: trabalho real fotografado, avaliações de Google verificáveis e números de credibilidade.
+      </p>
+    </div>
+
+    <!-- Portfólio mockup -->
+    <div class="mockup-browser" style="margin-bottom:3mm">
+      <div class="mb-bar">
+        <div class="mb-dot" style="background:#FF5F57"></div>
+        <div class="mb-dot" style="background:#FFBD2E"></div>
+        <div class="mb-dot" style="background:#28C840"></div>
+        <div class="mb-url">airtech.pt · #portfolio</div>
+      </div>
+      <div class="mb-body">
+        <div class="mock-carousel">
+          <div style="text-align:center; margin-bottom:4px">
+            <div style="font-size:8pt; font-weight:800; color:var(--navy)">Trabalhos Realizados</div>
+            <div style="font-size:6pt; color:var(--muted)">Fotografias reais das nossas instalações</div>
+          </div>
+          <div class="mock-car-track">
+            <div class="mock-car-item"><img src="imagens/Trabalha ja feitos.jpg" alt=""/></div>
+            <div class="mock-car-item"><img src="imagens/Trabalha ja feitos2.jpg" alt=""/></div>
+            <div class="mock-car-item"><img src="imagens/Trabalha ja feitos3.jpg" alt=""/></div>
+            <div class="mock-car-item"><img src="imagens/Trabalha ja feitos4.jpg" alt=""/></div>
+          </div>
+        </div>
+        <div class="mock-reviews">
+          <div style="text-align:center; margin-bottom:6px">
+            <div style="font-size:8pt; font-weight:800; color:var(--navy)">O que dizem os nossos clientes</div>
+          </div>
+          <div class="mock-rev-grid">
+            <div class="mock-rev-card">
+              <div class="mock-rev-stars">★★★★★</div>
+              <img src="imagens/Review 1.png" alt="" style="width:100%; border-radius:4px"/>
+            </div>
+            <div class="mock-rev-card">
+              <div class="mock-rev-stars">★★★★★</div>
+              <img src="imagens/Review 2.png" alt="" style="width:100%; border-radius:4px"/>
+            </div>
+            <div class="mock-rev-card">
+              <div class="mock-rev-stars">★★★★★</div>
+              <img src="imagens/Review 3.png" alt="" style="width:100%; border-radius:4px"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="explain-grid">
+      <div class="explain-card accent-green">
+        <div class="ec-icon">📸</div>
+        <div class="ec-title">Portfólio com carrossel (13 fotos)</div>
+        <div class="ec-text">Fotografias reais de instalações próprias eliminam a dúvida sobre a qualidade do trabalho. O carrossel com swipe mobile permite ver todos os trabalhos sem quebrar o fluxo da página. Clientes que vêem portfólio convertem 40% mais.</div>
+        <div class="ec-kpi">13 trabalhos reais</div>
+      </div>
+      <div class="explain-card accent-blue">
+        <div class="ec-icon">⭐</div>
+        <div class="ec-title">Avaliações Google reais (screenshot)</div>
+        <div class="ec-text">Usar capturas de ecrã autênticas do Google — em vez de depoimentos inventados — cria credibilidade verificável. O utilizador pode confirmar a identidade do avaliador, o que aumenta a confiança em comparação com texto anónimo.</div>
+        <div class="ec-kpi">Verificáveis no Google</div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>AirTech · Proposta Digital 2026</span>
+      <span>Confidencial</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════
+     PÁGINA 6 — SERVIÇOS + FAQ
+══════════════════════════════════ -->
+<div class="page">
+  <div class="inner">
+    <div class="inner-header">
+      <div class="ih-logo"><div class="ih-dot"></div><div class="ih-name">Studio Web</div></div>
+      <div class="ih-section">Serviços & Conteúdo</div>
+      <div class="ih-pg">05</div>
+    </div>
+
+    <div class="sec-title-block">
+      <div class="stb-eyebrow">Conteúdo estratégico</div>
+      <h2 class="stb-h2">SEO + resposta a objeções</h2>
+      <p class="stb-lead">
+        As secções de serviços e FAQ têm dois propósitos simultâneos: posicionar o site no Google para pesquisas como "instalação ar condicionado Lisboa" e eliminar as dúvidas que impedem o utilizador de contactar.
+      </p>
+    </div>
+
+    <!-- Services mockup -->
+    <div class="mockup-browser">
+      <div class="mb-bar">
+        <div class="mb-dot" style="background:#FF5F57"></div>
+        <div class="mb-dot" style="background:#FFBD2E"></div>
+        <div class="mb-dot" style="background:#28C840"></div>
+        <div class="mb-url">airtech.pt · #servicos</div>
+      </div>
+      <div class="mb-body">
+        <div class="mock-services">
+          <div style="text-align:center">
+            <div style="font-size:6pt; color:var(--accent); font-weight:700; letter-spacing:.1em; text-transform:uppercase">O que fazemos</div>
+            <div style="font-size:10pt; font-weight:900; color:var(--navy)">Serviços AirTech</div>
+          </div>
+          <div class="mock-services-grid">
+            <div class="mock-svc-card">
+              <div class="mock-svc-img" style="background:linear-gradient(135deg,#0369A1,#0EA5E9)">❄️</div>
+              <div class="mock-svc-body">
+                <div class="mock-svc-t">Instalação</div>
+                <div class="mock-svc-d"></div><div class="mock-svc-d s"></div>
+                <div class="mock-svc-btn"><span>Ver detalhes →</span></div>
+              </div>
+            </div>
+            <div class="mock-svc-card">
+              <div class="mock-svc-img" style="background:linear-gradient(135deg,#059669,#0EA5E9)">🔧</div>
+              <div class="mock-svc-body">
+                <div class="mock-svc-t">Manutenção</div>
+                <div class="mock-svc-d"></div><div class="mock-svc-d s"></div>
+                <div class="mock-svc-btn"><span>Ver detalhes →</span></div>
+              </div>
+            </div>
+            <div class="mock-svc-card">
+              <div class="mock-svc-img" style="background:linear-gradient(135deg,#EA580C,#F97316)">⚡</div>
+              <div class="mock-svc-body">
+                <div class="mock-svc-t">Reparação</div>
+                <div class="mock-svc-d"></div><div class="mock-svc-d s"></div>
+                <div class="mock-svc-btn"><span>Ver detalhes →</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ preview -->
+        <div style="background:var(--bg2); padding:10px 16px">
+          <div style="font-size:8pt; font-weight:800; color:var(--navy); margin-bottom:8px; text-align:center">Perguntas sobre Ar Condicionado</div>
+          <div style="border:1px solid var(--border); border-radius:6px; background:#fff; padding:7px 10px; margin-bottom:4px; display:flex; justify-content:space-between; align-items:center">
+            <div style="font-size:6.5pt; font-weight:600; color:var(--navy)">Qual a diferença entre split e multi-split?</div>
+            <div style="font-size:8pt; color:var(--muted)">▾</div>
+          </div>
+          <div style="border:1px solid var(--border); border-radius:6px; background:#fff; padding:7px 10px; margin-bottom:4px; display:flex; justify-content:space-between; align-items:center">
+            <div style="font-size:6.5pt; font-weight:600; color:var(--navy)">O que é BTU e como sei qual preciso?</div>
+            <div style="font-size:8pt; color:var(--muted)">▾</div>
+          </div>
+          <div style="border:1px solid var(--border); border-radius:6px; background:#fff; padding:7px 10px; display:flex; justify-content:space-between; align-items:center">
+            <div style="font-size:6.5pt; font-weight:600; color:var(--navy)">Com que frequência devo fazer manutenção?</div>
+            <div style="font-size:8pt; color:var(--muted)">▾</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="explain-grid" style="margin-top:4mm">
+      <div class="explain-card accent-blue">
+        <div class="ec-icon">🔍</div>
+        <div class="ec-title">FAQ de ar condicionado (7 perguntas)</div>
+        <div class="ec-text">As 7 perguntas foram escolhidas para coincidir com pesquisas reais no Google: "o que é BTU", "split vs multi-split", "manutenção ar condicionado frequência". Cada resposta posiciona a AirTech como especialista e captura tráfego orgânico sem custo adicional.</div>
+        <div class="ec-kpi">SEO long-tail sem custo</div>
+      </div>
+      <div class="explain-card accent-navy">
+        <div class="ec-icon">🛠️</div>
+        <div class="ec-title">Três serviços com páginas dedicadas</div>
+        <div class="ec-text">Instalação, manutenção e reparação têm secções próprias com detalhe de processo, preços indicativos e CTA específico. Visitantes com intenção de reparação e de instalação têm perfis distintos — servir os dois aumenta a cobertura de mercado.</div>
+        <div class="ec-kpi">3 segmentos de cliente</div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>AirTech · Proposta Digital 2026</span>
+      <span>Confidencial</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════
+     PÁGINA 7 — MOBILE + PERFORMANCE
+══════════════════════════════════ -->
+<div class="page">
+  <div class="inner">
+    <div class="inner-header">
+      <div class="ih-logo"><div class="ih-dot"></div><div class="ih-name">Studio Web</div></div>
+      <div class="ih-section">Mobile & Técnica</div>
+      <div class="ih-pg">06</div>
+    </div>
+
+    <div class="sec-title-block">
+      <div class="stb-eyebrow">Experiência mobile e desempenho</div>
+      <h2 class="stb-h2">+70% dos clientes chegam pelo telemóvel</h2>
+      <p class="stb-lead">
+        Em serviços locais, a maioria das pesquisas acontece no telemóvel. Um site que não funciona perfeitamente em mobile perde imediatamente mais de dois terços dos potenciais clientes.
+      </p>
+    </div>
+
+    <div class="metrics-row">
+      <div class="metric-card">
+        <div class="metric-n">70<span>%</span></div>
+        <div class="metric-l">Tráfego mobile em serviços locais (Google)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-n">&lt;1<span>s</span></div>
+        <div class="metric-l">Tempo de carregamento (zero dependências externas)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-n">100<span>%</span></div>
+        <div class="metric-l">Responsive — funciona em todos os dispositivos</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-n">0<span>kb</span></div>
+        <div class="metric-l">Bibliotecas JS externas — zero blocos de render</div>
+      </div>
+    </div>
+
+    <div class="explain-grid">
+      <div class="explain-card accent-green">
+        <div class="ec-icon">📱</div>
+        <div class="ec-title">Mobile-first design</div>
+        <div class="ec-text">O site foi desenhado primeiro para ecrãs de 375px e adaptado para desktop — não o inverso. Grelhas, espaçamentos e tamanhos de texto foram todos calibrados para leitura e toque em telemóvel. O botão de WhatsApp flutuante está sempre visível no canto inferior direito.</div>
+      </div>
+      <div class="explain-card accent-orange">
+        <div class="ec-icon">⚡</div>
+        <div class="ec-title">Sem frameworks, sem bibliotecas</div>
+        <div class="ec-text">O site não usa React, Vue, WordPress, jQuery nem qualquer dependência externa. É HTML, CSS e JavaScript puro. Resultado: carregamento instantâneo, sem risco de actualizações quebradas, sem mensalidades de plugins e fácil de hospedar em qualquer lado.</div>
+      </div>
+      <div class="explain-card accent-blue">
+        <div class="ec-icon">🎯</div>
+        <div class="ec-title">Botão WhatsApp flutuante fixo</div>
+        <div class="ec-text">Em mobile, o botão verde do WhatsApp está fixo no ecrã a toda a altura. É o ponto de contacto de menor fricção possível: um toque, conversa aberta. Em serviços onde a decisão é emocional e urgente, isto é determinante para não perder o momento de intenção.</div>
+      </div>
+      <div class="explain-card accent-navy">
+        <div class="ec-icon">🔒</div>
+        <div class="ec-title">Hospedagem GitHub Pages (grátis e fiável)</div>
+        <div class="ec-text">O site está publicado no GitHub Pages com deploy automático via GitHub Actions — cada alteração ao ficheiro HTML é publicada em segundos, sem FTP, sem painel de controlo. Uptime de 99.9%, HTTPS incluído, CDN global, custo zero.</div>
+      </div>
+    </div>
+
+    <table class="tech-table">
+      <tr>
+        <th>Funcionalidade</th>
+        <th>Implementação</th>
+        <th>Benefício</th>
+      </tr>
+      <tr>
+        <td>Carrossel de portfólio</td>
+        <td>JavaScript puro, swipe touch</td>
+        <td><span class="badge-yes">Funciona em mobile sem erros</span></td>
+      </tr>
+      <tr>
+        <td>Formulário de orçamento</td>
+        <td>Submete via WhatsApp (wa.me)</td>
+        <td><span class="badge-yes">Sem servidor, sem base de dados</span></td>
+      </tr>
+      <tr>
+        <td>Animações de entrada</td>
+        <td>IntersectionObserver API</td>
+        <td><span class="badge-yes">Não atrasa carregamento</span></td>
+      </tr>
+      <tr>
+        <td>Hash routing (URL por secção)</td>
+        <td>history.replaceState</td>
+        <td><span class="badge-yes">Links directos partilháveis</span></td>
+      </tr>
+      <tr>
+        <td>Deploy automático</td>
+        <td>GitHub Actions → Pages</td>
+        <td><span class="badge-yes">Live em segundos após edição</span></td>
+      </tr>
+    </table>
+
+    <div class="page-footer">
+      <span>AirTech · Proposta Digital 2026</span>
+      <span>Confidencial</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════
+     PÁGINA 8 — PRÓXIMOS PASSOS
+══════════════════════════════════ -->
+<div class="page">
+  <div class="inner">
+    <div class="inner-header">
+      <div class="ih-logo"><div class="ih-dot"></div><div class="ih-name">Studio Web</div></div>
+      <div class="ih-section">Próximos Passos</div>
+      <div class="ih-pg">07</div>
+    </div>
+
+    <div class="sec-title-block">
+      <div class="stb-eyebrow">Para ir a produção</div>
+      <h2 class="stb-h2">O que falta para o site estar 100% completo</h2>
+      <p class="stb-lead">
+        O site está funcional e publicado. Existem apenas alguns dados que precisam de ser fornecidos pelo cliente para personalização final — detalhes que só a empresa pode confirmar.
+      </p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:5mm; margin-bottom:5mm">
+
+      <div style="border-radius:12px; border:2px solid #059669; background:linear-gradient(135deg,#f0fdf4,#dcfce7); padding:5mm">
+        <div style="font-size:8pt; font-weight:800; color:#065f46; text-transform:uppercase; letter-spacing:.08em; margin-bottom:6px">✓ Já está pronto</div>
+        <div class="checklist" style="grid-template-columns:1fr">
+          <div class="cli">Design completo e responsivo</div>
+          <div class="cli">Portfólio com 13 fotografias reais</div>
+          <div class="cli">Avaliações Google integradas</div>
+          <div class="cli">Formulário WhatsApp funcional</div>
+          <div class="cli">FAQ de 7 perguntas técnicas</div>
+          <div class="cli">Hospedagem GitHub Pages activa</div>
+          <div class="cli">Deploy automático configurado</div>
+          <div class="cli">Página de Facebook ligada</div>
+          <div class="cli">Optimização mobile completa</div>
+          <div class="cli">SEO meta tags configuradas</div>
+        </div>
+      </div>
+
+      <div style="border-radius:12px; border:2px solid #EA580C; background:linear-gradient(135deg,#fff7ed,#ffedd5); padding:5mm">
+        <div style="font-size:8pt; font-weight:800; color:#9a3412; text-transform:uppercase; letter-spacing:.08em; margin-bottom:6px">⚙ A personalizar pelo cliente</div>
+        <div style="display:flex; flex-direction:column; gap:5px">
+          <div style="display:flex; gap:8px; font-size:8pt; color:#7c2d12">
+            <span style="font-size:9pt">📍</span>
+            <div><strong>Mapa Google Maps</strong> — embed do endereço real da empresa na secção de contactos</div>
+          </div>
+          <div style="display:flex; gap:8px; font-size:8pt; color:#7c2d12">
+            <span style="font-size:9pt">✉️</span>
+            <div><strong>Email real</strong> — substituir info@airtech.pt pelo email activo</div>
+          </div>
+          <div style="display:flex; gap:8px; font-size:8pt; color:#7c2d12">
+            <span style="font-size:9pt">🔗</span>
+            <div><strong>Link Google Reviews</strong> — URL para a página de avaliações do Google Business</div>
+          </div>
+          <div style="display:flex; gap:8px; font-size:8pt; color:#7c2d12">
+            <span style="font-size:9pt">🌐</span>
+            <div><strong>Domínio próprio</strong> — apontar airtech.pt para o GitHub Pages (registo DNS)</div>
+          </div>
+          <div style="display:flex; gap:8px; font-size:8pt; color:#7c2d12">
+            <span style="font-size:9pt">📸</span>
+            <div><strong>Mais fotos</strong> — adicionar novos trabalhos ao portfólio conforme vão surgindo</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="highlight-box light">
+      <h3>Domínio próprio: airtech.pt</h3>
+      <p>Para usar um domínio personalizado em vez do URL do GitHub, o cliente precisa de registar airtech.pt num registador (ex: Namecheap, GoDaddy ou PTnic para .pt) e apontar o DNS para o GitHub Pages. O processo demora cerca de 24–48h. Podemos configurar isto em conjunto — é o passo que transforma o site de protótipo em presença digital profissional.</p>
+    </div>
+
+    <div class="highlight-box" style="margin-top:4mm">
+      <h3>Google Analytics — opcional mas recomendado</h3>
+      <p style="color:rgba(255,255,255,.72)">Adicionar o tag do Google Analytics 4 permite saber quantas pessoas visitam o site, de onde vêm, que secções lêem e quando saem. Com esse dado, é possível optimizar o site ao longo do tempo com base em comportamento real dos clientes — não em suposições.</p>
+    </div>
+
+    <div class="page-footer">
+      <span>AirTech · Proposta Digital 2026</span>
+      <span>Confidencial</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════
+     PÁGINA 9 — ENCERRAMENTO
+══════════════════════════════════ -->
+<div class="page">
+  <div class="quote-page">
+    <div>
+      <div class="qp-label">Resumo executivo</div>
+      <h2 class="qp-quote">
+        Um site que trabalha<br>
+        <span>por si. 24 horas,</span><br>
+        7 dias por semana.
+      </h2>
+      <p class="qp-sub">
+        Enquanto o técnico está numa instalação, o site está a responder a pedidos de orçamento, a mostrar portfólio a potenciais clientes e a converter tráfego em contactos — tudo de forma automática.
+      </p>
+      <div class="qp-divider"></div>
+    </div>
+
+    <div class="qp-cta-box">
+      <h3>Entramos em contacto?</h3>
+      <p>Para esclarecimentos, ajustes ou para avançar com o domínio próprio</p>
+      <div class="qp-cta-items">
+        <div class="qp-cta-item">
+          <div class="qp-cta-icon">💬</div>
+          <div class="qp-cta-info">
+            <h4>WhatsApp directo</h4>
+            <p>Resposta imediata</p>
+          </div>
+        </div>
+        <div class="qp-cta-item">
+          <div class="qp-cta-icon">✉️</div>
+          <div class="qp-cta-info">
+            <h4>reis2551@gmail.com</h4>
+            <p>Para questões detalhadas</p>
+          </div>
+        </div>
+        <div class="qp-cta-item">
+          <div class="qp-cta-icon">🌐</div>
+          <div class="qp-cta-info">
+            <h4>GitHub Pages</h4>
+            <p>Site já publicado e online</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="font-size:8pt; color:rgba(255,255,255,.3); margin-top:20px">
+      Proposta preparada por Studio Web · Abril 2026 · Confidencial
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
