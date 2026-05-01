@@ -609,6 +609,10 @@ footer { background:#050B16; padding:72px 0 0; color:rgba(255,255,255,.6) }
 
 /* ─── WEATHER WIDGET ─────────────────────── */
 @keyframes spin-slow { to { transform:rotate(360deg) } }
+@keyframes spin-snow {
+  from { transform:translate(-50%,-50%) rotate(0deg) }
+  to   { transform:translate(-50%,-50%) rotate(360deg) }
+}
 .wx-wrap {
   position:fixed;
   bottom:max(28px, env(safe-area-inset-bottom, 0px) + 16px);
@@ -629,7 +633,8 @@ footer { background:#050B16; padding:72px 0 0; color:rgba(255,255,255,.6) }
 .wx-sun { animation:spin-slow 10s linear infinite; transition:opacity .25s }
 .wx-snow-icon {
   display:none;
-  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  position:absolute; top:50%; left:50%;
+  animation:spin-snow 10s linear infinite;
 }
 .wx-cold {
   display:none; font-size:13px; font-weight:700; color:#fff; margin-top:5px;
