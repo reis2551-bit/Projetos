@@ -606,7 +606,7 @@ footer { background:#050B16; padding:72px 0 0; color:rgba(255,255,255,.6) }
 /* ─── WEATHER WIDGET ─────────────────────── */
 @keyframes spin-slow { to { transform:rotate(360deg) } }
 .wx-wrap {
-  position:fixed; bottom:96px; right:24px; z-index:998;
+  position:fixed; bottom:28px; right:24px; z-index:998;
   display:flex; flex-direction:column; align-items:center; gap:0;
   cursor:pointer; user-select:none;
 }
@@ -637,20 +637,10 @@ footer { background:#050B16; padding:72px 0 0; color:rgba(255,255,255,.6) }
 .wx-row:last-child { margin-bottom:0 }
 .wx-row span { font-size:13px; font-weight:400; color:#667085 }
 @media(max-width:640px){
-  .wx-wrap { bottom:84px; right:16px }
-  .wx-card { right:12px; bottom:152px }
+  .wx-wrap { bottom:20px; right:16px }
+  .wx-card { right:12px; bottom:110px }
 }
-/* ─── WHATSAPP FLOAT ─────────────────────── */
-.wa-float {
-  position:fixed; bottom:24px; right:24px; z-index:997;
-  width:58px; height:58px; border-radius:50%; background:var(--wa);
-  display:flex; align-items:center; justify-content:center;
-  box-shadow:0 8px 28px -4px rgba(34,197,94,.55);
-  transition:transform var(--t), box-shadow var(--t);
-  animation:pulse-ring 2.4s infinite;
-}
-.wa-float:hover { transform:scale(1.08); animation:none; box-shadow:0 12px 36px -4px rgba(34,197,94,.7) }
-.wa-float svg { width:28px; height:28px }
+/* ─── RESPONSIVE ─────────────────────────── */
 
 /* ─── RESPONSIVE ─────────────────────────── */
 @media (max-width:1024px) {
@@ -695,8 +685,7 @@ footer { background:#050B16; padding:72px 0 0; color:rgba(255,255,255,.6) }
   .wrap        { padding:0 20px }
   .car-slide   { flex:0 0 100% }
   .proc-grid   { grid-template-columns:1fr }
-  .wa-float    { bottom:16px; right:16px; width:52px; height:52px }
-  .wa-float svg { width:26px; height:26px }
+
   .form-card   { padding:24px }
   .hero-form-card { padding:24px }
 }
@@ -733,14 +722,6 @@ footer { background:#050B16; padding:72px 0 0; color:rgba(255,255,255,.6) }
   <div class="wx-temp" id="wx-temp">—°</div>
 </div>
 
-<!-- ════════ WHATSAPP FLOAT ════════ -->
-<a href="https://wa.me/351937058834?text=Ol%C3%A1%2C+preciso+de+or%C3%A7amento+para+ar+condicionado"
-   target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24" fill="white">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.854L0 24l6.343-1.499A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.07-1.415l-.362-.216-3.765.89.952-3.668-.237-.377A9.818 9.818 0 1112 21.818z"/>
-  </svg>
-</a>
 
 <!-- ════════ AVAILABILITY BAR ════════ -->
 <div id="avail-bar">
