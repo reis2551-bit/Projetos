@@ -1694,15 +1694,19 @@ function handleForm(e) {
   }
 
   resize();
-  const flakes = Array.from({ length: 70 }, makeFlake);
+  const flakes = Array.from({ length: 140 }, makeFlake);
 
-  /* 5 wind gust ribbons — each sweeps L→R at a different height */
+  /* 9 wind gust ribbons — each sweeps L→R at a different height */
   const GUSTS = [
-    { yFrac:0.15, delay:0.00, amp:38, thick:13, a:0.55 },
-    { yFrac:0.32, delay:0.15, amp:26, thick: 9, a:0.60 },
-    { yFrac:0.50, delay:0.07, amp:44, thick:15, a:0.50 },
-    { yFrac:0.68, delay:0.22, amp:30, thick:10, a:0.55 },
-    { yFrac:0.84, delay:0.10, amp:20, thick: 7, a:0.45 },
+    { yFrac:0.08, delay:0.00, amp:28, thick:10, a:0.50 },
+    { yFrac:0.20, delay:0.10, amp:42, thick:16, a:0.65 },
+    { yFrac:0.32, delay:0.04, amp:30, thick:11, a:0.60 },
+    { yFrac:0.44, delay:0.18, amp:50, thick:18, a:0.55 },
+    { yFrac:0.55, delay:0.08, amp:35, thick:13, a:0.65 },
+    { yFrac:0.65, delay:0.22, amp:24, thick: 9, a:0.55 },
+    { yFrac:0.74, delay:0.13, amp:46, thick:16, a:0.60 },
+    { yFrac:0.84, delay:0.05, amp:30, thick:11, a:0.50 },
+    { yFrac:0.93, delay:0.17, amp:20, thick: 8, a:0.45 },
   ];
 
   function drawFlakes(windFactor) {
