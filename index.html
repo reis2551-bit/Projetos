@@ -660,6 +660,10 @@ footer { background:#050B16; padding:72px 0 0; color:rgba(255,255,255,.6) }
   letter-spacing:-.2px; transition:opacity .2s;
 }
 .wx-airtech-btn:hover { opacity:.85 }
+.wx-wrap.active .wx-airtech-btn {
+  background:linear-gradient(135deg,#FFB830,#FF8C00);
+  box-shadow:0 4px 14px -2px rgba(255,140,0,.45);
+}
 @media(max-width:640px){
   .wx-wrap { bottom:20px; right:16px }
   .wx-card { right:12px; bottom:96px }
@@ -1803,9 +1807,15 @@ function handleForm(e) {
 
   aBtn.addEventListener('click', function(e) {
     e.stopPropagation();
-    wrap.classList.add('active');
+    if (wrap.classList.contains('active')) {
+      wrap.classList.remove('active');
+      aBtn.textContent = '❄️ Com AirTech';
+    } else {
+      wrap.classList.add('active');
+      aBtn.textContent = '☀️ Sem AirTech';
+      startSnow();
+    }
     card.classList.remove('open');
-    startSnow();
   });
 
   document.addEventListener('click', function() {
