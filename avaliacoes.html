@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Contactos | AirTech — Ar Condicionado em Lisboa e Zona Centro</title>
-<meta name="description" content="Contacte a AirTech. Instalação, manutenção e reparação de ar condicionado em Lisboa e Zona Centro. Orçamento gratuito, resposta em menos de 2 horas."/>
+<title>Avaliações | AirTech — O que dizem os nossos clientes</title>
+<meta name="description" content="Avaliações reais dos clientes AirTech no Google e Facebook. 5.0 estrelas. Veja o que dizem sobre a nossa instalação e manutenção de ar condicionado."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
@@ -145,7 +145,6 @@ section  { padding:104px 0 }
 .hd-name  { font-size:19px; font-weight:800; color:var(--navy); letter-spacing:-.3px; transition:color var(--t) }
 .hd-name em { color:var(--blue); font-style:normal }
 
-
 .hd-nav { display:flex; gap:4px }
 .hd-lnk { font-size:14px; font-weight:500; color:var(--text2); padding:8px 14px; border-radius:6px; transition:all var(--t); letter-spacing:-.005em }
 .hd-lnk:hover { color:var(--navy); background:var(--bg2) }
@@ -154,7 +153,6 @@ section  { padding:104px 0 }
 .hd-lnk-accent:hover { background:var(--blue-d) !important; color:#fff !important }
 .hd-lnk-active { color:#fff !important; font-weight:600; background:var(--navy) !important; border-radius:6px }
 .hd-lnk-active:hover { background:var(--navy-2) !important; color:#fff !important }
-
 
 .hd-right { display:flex; align-items:center; gap:10px }
 .hd-phone {
@@ -207,118 +205,64 @@ section  { padding:104px 0 }
 /* ─── PAGE HERO ──────────────────────────── */
 .page-hero {
   background:var(--navy);
-  padding:120px 0 80px;
+  padding:120px 0 88px;
   position:relative; overflow:hidden;
 }
 .page-hero::before {
   content:''; position:absolute; inset:0;
-  background:radial-gradient(ellipse 70% 80% at 60% 50%, rgba(56,189,248,.08) 0%, transparent 65%);
+  background:
+    radial-gradient(ellipse 60% 70% at 80% 50%, rgba(56,189,248,.07) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(11,102,165,.12) 0%, transparent 55%);
   pointer-events:none;
 }
 .page-hero-content { position:relative; z-index:1 }
-.page-hero .eyebrow { color:var(--accent) }
-.page-hero .eyebrow::before { background:var(--accent) }
 
-/* ─── CONTACT GRID ───────────────────────── */
-.contact-grid {
-  display:grid;
-  grid-template-columns:1fr 420px;
-  gap:60px;
-  align-items:start;
-}
-
-/* ─── CONTACT FORM ───────────────────────── */
-.contact-form-card {
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:var(--r-lg);
-  padding:44px 40px;
-  box-shadow:var(--shadow-lg);
-}
-.cfc-title {
-  font-size:22px; font-weight:700; color:var(--navy);
-  letter-spacing:-.03em; margin-bottom:6px;
-}
-.cfc-sub {
-  font-size:14px; color:var(--muted); margin-bottom:28px; line-height:1.6;
-}
-.f-row { display:grid; grid-template-columns:1fr 1fr; gap:14px }
-.f-grp { display:flex; flex-direction:column; gap:6px; margin-bottom:14px }
-.f-grp label {
-  font-size:13px; font-weight:600; color:var(--text2); letter-spacing:-.005em;
-}
-.f-grp input,
-.f-grp select,
-.f-grp textarea {
-  padding:11px 14px; border:1.5px solid var(--border); border-radius:var(--r);
-  font-family:inherit; font-size:14px; color:var(--text); background:#fff;
-  transition:border-color var(--t), box-shadow var(--t); outline:none;
-  -webkit-appearance:none; appearance:none;
-}
-.f-grp select { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23667085' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 12px center; padding-right:36px }
-.f-grp input:focus,
-.f-grp select:focus,
-.f-grp textarea:focus { border-color:var(--blue); box-shadow:0 0 0 3px rgba(11,102,165,.1) }
-.f-grp textarea { resize:vertical; min-height:96px }
-.f-submit {
-  margin-top:6px; width:100%; padding:16px 24px; font-size:15px; font-weight:700;
-  border-radius:var(--r); cursor:pointer; border:none; transition:all var(--t);
-  background:var(--wa); color:#fff;
-  box-shadow:0 1px 0 rgba(255,255,255,.2) inset, 0 8px 24px -6px rgba(34,197,94,.5);
-  display:flex; align-items:center; justify-content:center; gap:10px;
-}
-.f-submit:hover { background:var(--wa-d); transform:translateY(-1px) }
-.f-note {
-  display:flex; align-items:center; gap:6px;
-  font-size:12px; color:var(--muted-2); margin-top:12px;
-  justify-content:center;
-}
-
-/* ─── CONTACT INFO PANEL ─────────────────── */
-.contact-info { display:flex; flex-direction:column; gap:20px }
-.ci-card {
-  background:#fff; border:1px solid var(--border);
-  border-radius:var(--r-md); padding:24px 26px;
-  box-shadow:var(--shadow-sm); transition:box-shadow var(--t);
-}
-.ci-card:hover { box-shadow:var(--shadow) }
-.ci-icon {
-  width:44px; height:44px; border-radius:12px;
-  background:var(--blue-l); display:flex; align-items:center; justify-content:center;
-  margin-bottom:14px; color:var(--blue);
-}
-.ci-label { font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted-2); margin-bottom:4px }
-.ci-val { font-size:17px; font-weight:700; color:var(--navy); letter-spacing:-.02em; margin-bottom:2px }
-.ci-desc { font-size:13px; color:var(--muted); line-height:1.55 }
-.ci-link { margin-top:12px; font-size:13px; font-weight:600; color:var(--blue); display:inline-flex; align-items:center; gap:5px; transition:gap var(--t) }
-.ci-link:hover { gap:8px }
-
-/* ─── HOURS CARD ─────────────────────────── */
-.hours-grid { display:flex; flex-direction:column; gap:8px; margin-top:12px }
-.hours-row { display:flex; justify-content:space-between; align-items:center; font-size:14px }
-.hours-day { color:var(--text2); font-weight:500 }
-.hours-time { color:var(--navy); font-weight:600 }
-.hours-closed { color:var(--muted-2) }
-.hours-divider { height:1px; background:var(--border-2); margin:4px 0 }
-
-/* ─── MAP SECTION ────────────────────────── */
-.map-section { padding:0 0 104px }
-.map-container {
+/* ─── REVIEWS ────────────────────────────── */
+.reviews-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px }
+.review-card {
   border-radius:var(--r-lg); overflow:hidden;
-  box-shadow:var(--shadow-lg);
-  border:1px solid var(--border);
-  height:420px; background:var(--bg2);
-  display:flex; align-items:center; justify-content:center;
+  box-shadow:var(--shadow); border:1px solid var(--border);
+  background:#fff; transition:box-shadow var(--t), transform var(--t);
 }
-.map-container iframe { width:100%; height:100%; border:none; display:block }
+.review-card:hover { box-shadow:var(--shadow-lg); transform:translateY(-2px) }
+.review-card img { width:100%; display:block }
 
-/* ─── CTA DARK ───────────────────────────── */
-#cta-final {
-  background:var(--navy);
-  padding:100px 0;
+/* ─── PORTFOLIO CAROUSEL ─────────────────── */
+.car-outer { overflow:hidden; margin-top:56px; padding:0 20px }
+.car-track { display:flex; transition:transform .5s cubic-bezier(.4,0,.2,1) }
+.car-slide { flex:0 0 calc(100%/3); padding:0 8px }
+.car-slide img {
+  width:100%; aspect-ratio:4/3; object-fit:cover;
+  border-radius:var(--r-md);
+  transition:transform .4s ease, box-shadow .4s ease;
 }
-.cta-final-inner { position:relative; z-index:1; max-width:820px; margin:0 auto; text-align:center }
-.cta-final-btns { display:flex; gap:14px; flex-wrap:wrap; justify-content:center }
+.car-slide:hover img { transform:scale(1.01); box-shadow:var(--shadow-lg) }
+.car-nav { display:flex; align-items:center; justify-content:center; gap:20px; margin-top:36px }
+.car-btn {
+  width:44px; height:44px; border-radius:50%; border:1px solid var(--border);
+  background:#fff; display:flex; align-items:center; justify-content:center;
+  color:var(--navy); box-shadow:var(--shadow-sm); transition:all var(--t);
+}
+.car-btn:hover { border-color:var(--navy); color:var(--navy); transform:translateY(-1px); box-shadow:var(--shadow) }
+.car-dots { display:flex; gap:6px }
+.car-dot { width:6px; height:6px; border-radius:50%; background:var(--border); cursor:pointer; transition:all var(--t) }
+.car-dot.on { background:var(--navy); width:22px; border-radius:3px }
+
+/* ─── FINAL CTA ──────────────────────────── */
+#cta-final {
+  background:var(--navy); padding:112px 0; text-align:center; position:relative; overflow:hidden;
+}
+#cta-final::before {
+  content:''; position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(56,189,248,.16) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 50% 100%, rgba(11,102,165,.14) 0%, transparent 60%);
+  pointer-events:none;
+}
+.cta-final-inner { position:relative; z-index:1; max-width:820px; margin:0 auto }
+.cta-final-inner .h1 { font-size:clamp(34px,5vw,60px); margin-bottom:20px }
+.cta-final-inner .lead-w { margin:0 auto 44px; font-size:18px }
+.cta-final-btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap }
 
 /* ─── FOOTER ─────────────────────────────── */
 footer { background:#050B16; padding:72px 0 0; color:rgba(255,255,255,.6) }
@@ -355,29 +299,34 @@ footer { background:#050B16; padding:72px 0 0; color:rgba(255,255,255,.6) }
   .ft-grid { grid-template-columns:1.4fr 1fr 1fr; gap:32px }
   .ft-grid > div:first-child { grid-column:1/-1 }
 }
-@media (max-width:960px) {
-  .contact-grid { grid-template-columns:1fr }
-  .contact-form-card { order:1 }
-  .contact-info { order:2 }
-  .hd-nav, .hd-phone, .hd-wa { display:none }
-  .hd-ham { display:flex }
-}
 @media (max-width:820px) {
+  section { padding:80px 0 }
+  .reviews-grid { grid-template-columns:1fr }
+  .car-slide { flex:0 0 50% }
   .ft-grid { grid-template-columns:1fr 1fr; gap:28px }
   .ft-grid > div:first-child { grid-column:1/-1 }
+  .hd-nav, .hd-phone, .hd-wa { display:none }
+  .hd-ham { display:flex }
+  .cta-final-btns { flex-direction:column; align-items:center }
 }
-@media (max-width:640px) {
+@media (max-width:560px) {
   .wrap { padding:0 20px }
-  section { padding:80px 0 }
-  .contact-form-card { padding:28px 22px }
-  .f-row { grid-template-columns:1fr }
+  .page-hero { padding:100px 0 72px }
+  .car-slide { flex:0 0 100% }
   .ft-grid { grid-template-columns:1fr }
-  .page-hero { padding:100px 0 64px }
-  .map-container { height:300px }
 }
 </style>
 </head>
 <body>
+
+<!-- ════════ WHATSAPP FLOAT ════════ -->
+<a href="https://wa.me/351937058834?text=Ol%C3%A1%2C+preciso+de+or%C3%A7amento+para+ar+condicionado"
+   target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.854L0 24l6.343-1.499A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.07-1.415l-.362-.216-3.765.89.952-3.668-.237-.377A9.818 9.818 0 1112 21.818z"/>
+  </svg>
+</a>
 
 <!-- ════════ AVAILABILITY BAR ════════ -->
 <div id="avail-bar">
@@ -398,10 +347,10 @@ footer { background:#050B16; padding:72px 0 0; color:rgba(255,255,255,.6) }
 
     <nav class="hd-nav">
       <a href="servicos.html"   class="hd-lnk">Serviços</a>
-      <a href="avaliacoes.html" class="hd-lnk">Avaliações</a>
-      <a href="manutencao.html"          class="hd-lnk hd-lnk-accent">Manutenção</a>
-      <a href="sobre.html"               class="hd-lnk">Sobre nós</a>
-      <a href="contactos.html"           class="hd-lnk hd-lnk-active">Contacto</a>
+      <a href="avaliacoes.html" class="hd-lnk hd-lnk-active">Avaliações</a>
+      <a href="manutencao.html" class="hd-lnk hd-lnk-accent">Manutenção</a>
+      <a href="sobre.html"      class="hd-lnk">Sobre nós</a>
+      <a href="contactos.html"  class="hd-lnk">Contacto</a>
     </nav>
 
     <div class="hd-right">
@@ -425,7 +374,7 @@ footer { background:#050B16; padding:72px 0 0; color:rgba(255,255,255,.6) }
 <!-- Mobile Drawer -->
 <div class="drawer" id="drawer">
   <div class="drawer-hd">
-    <a href="website.html#hero" class="hd-logo">
+    <a href="website.html" class="hd-logo">
       <div class="hd-gear logo-img" style="width:50px;height:32px" role="img" aria-label="AirTech logo"></div>
       <span class="hd-name">Air<em>Tech</em></span>
     </a>
@@ -434,8 +383,8 @@ footer { background:#050B16; padding:72px 0 0; color:rgba(255,255,255,.6) }
   <nav class="drawer-nav">
     <a href="servicos.html"   class="dr-lnk">Serviços <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
     <a href="avaliacoes.html" class="dr-lnk">Avaliações <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
-    <a href="sobre.html" class="dr-lnk">Sobre nós <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
-    <a href="contactos.html" class="dr-lnk">Contacto <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="sobre.html"      class="dr-lnk">Sobre nós <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="contactos.html"  class="dr-lnk">Contacto <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
   </nav>
   <div class="drawer-maint">
     <a href="manutencao.html" class="btn btn-blue btn-block">Planos de Manutenção <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
@@ -453,183 +402,105 @@ footer { background:#050B16; padding:72px 0 0; color:rgba(255,255,255,.6) }
 <!-- ════════ PAGE HERO ════════ -->
 <section class="page-hero">
   <div class="wrap page-hero-content">
-    <span class="eyebrow eyebrow-w">Contactos</span>
-    <h1 class="h1" style="max-width:700px;margin-bottom:20px">
-      Fale connosco.<br><span class="serif">Respondemos em 2 horas.</span>
+    <span class="eyebrow eyebrow-w">Avaliações reais</span>
+    <h1 class="h1" style="max-width:680px;margin-bottom:20px">
+      O que os clientes<br><span class="serif">dizem sobre nós.</span>
     </h1>
-    <p class="lead lead-w">
-      Orçamento gratuito e sem compromisso. Por WhatsApp, telefone ou formulário — escolha o que preferir.
+    <p class="lead lead-w" style="max-width:560px">
+      Avaliações do Google e Facebook, sem filtros nem seleção. O que lê é o que existe.
     </p>
   </div>
 </section>
 
-<!-- ════════ CONTACT MAIN ════════ -->
-<section style="padding:80px 0 0">
+<!-- ════════ RATING BAR ════════ -->
+<section style="padding:72px 0 0">
   <div class="wrap">
-    <div class="contact-grid">
-
-      <!-- FORM -->
-      <div class="contact-form-card fade-up">
-        <div class="cfc-title">Pedir orçamento gratuito</div>
-        <div class="cfc-sub">Preencha o formulário. A nossa equipa entra em contacto em menos de 2 horas.</div>
-
-        <form id="contactForm" onsubmit="handleForm(event)">
-          <div class="f-row">
-            <div class="f-grp">
-              <label for="cf-name">Nome</label>
-              <input id="cf-name" type="text" placeholder="O seu nome" required/>
-            </div>
-            <div class="f-grp">
-              <label for="cf-phone">Telefone</label>
-              <input id="cf-phone" type="tel" placeholder="9XX XXX XXX" required/>
-            </div>
-          </div>
-
-          <div class="f-grp">
-            <label for="cf-service">Serviço pretendido</label>
-            <select id="cf-service" required>
-              <option value="">Selecione o tipo de serviço</option>
-              <option>Instalação de ar condicionado</option>
-              <option>Reparação / avaria</option>
-              <option>Manutenção preventiva</option>
-              <option>Projeto comercial</option>
-              <option>Outro</option>
-            </select>
-          </div>
-
-          <div class="f-grp">
-            <label for="cf-local">Localização</label>
-            <input id="cf-local" type="text" placeholder="Ex: Lisboa, Cascais, Sintra..."/>
-          </div>
-
-          <div class="f-grp">
-            <label for="cf-msg">Detalhes adicionais</label>
-            <textarea id="cf-msg" placeholder="Descreva brevemente o que precisa — tipo de divisão, área, dúvidas..."></textarea>
-          </div>
-
-          <button type="submit" class="f-submit">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.854L0 24l6.343-1.499A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.07-1.415l-.362-.216-3.765.89.952-3.668-.237-.377A9.818 9.818 0 1112 21.818z"/></svg>
-            Enviar pedido pelo WhatsApp
-          </button>
-          <p class="f-note">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-            Dados confidenciais · Resposta em &lt; 2h
-          </p>
-        </form>
-      </div>
-
-      <!-- INFO PANEL -->
-      <div class="contact-info">
-
-        <div class="ci-card fade-up">
-          <div class="ci-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          </div>
-          <div class="ci-label">Telefone</div>
-          <div class="ci-val">937 058 834</div>
-          <div class="ci-desc">Chamada ou SMS. Respondemos sempre.</div>
-          <a href="tel:+351937058834" class="ci-link">
-            Ligar agora
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
+    <div class="center fade-up" style="margin-bottom:56px">
+      <div style="display:inline-flex;align-items:center;gap:16px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px 40px">
+        <div style="font-size:56px;font-weight:800;color:var(--navy);letter-spacing:-.04em;line-height:1">5.0</div>
+        <div>
+          <div style="color:#F59E0B;font-size:22px;letter-spacing:2px;margin-bottom:4px">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div style="font-size:13px;font-weight:600;color:var(--muted)">Google Reviews</div>
         </div>
-
-        <div class="ci-card fade-up">
-          <div class="ci-icon" style="background:#F0FDF4;color:var(--wa)">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.854L0 24l6.343-1.499A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.07-1.415l-.362-.216-3.765.89.952-3.668-.237-.377A9.818 9.818 0 1112 21.818z"/></svg>
-          </div>
-          <div class="ci-label">WhatsApp</div>
-          <div class="ci-val">Resposta imediata</div>
-          <div class="ci-desc">Canal preferido. Receba orçamento por mensagem.</div>
-          <a href="https://wa.me/351937058834?text=Ol%C3%A1%2C+preciso+de+ajuda+com+ar+condicionado" target="_blank" class="ci-link" style="color:var(--wa)">
-            Abrir WhatsApp
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-
-        <div class="ci-card fade-up">
-          <div class="ci-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </div>
-          <div class="ci-label">Email</div>
-          <div class="ci-val">info@airtech.pt</div>
-          <div class="ci-desc">Para propostas formais e documentação.</div>
-          <a href="mailto:info@airtech.pt" class="ci-link">
-            Enviar email
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-
-        <div class="ci-card fade-up">
-          <div class="ci-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <div class="ci-label">Horário</div>
-          <div class="ci-val">Seg a Dom</div>
-          <div class="hours-grid">
-            <div class="hours-row">
-              <span class="hours-day">Segunda a Sexta</span>
-              <span class="hours-time">08:00 – 20:00</span>
-            </div>
-            <div class="hours-divider"></div>
-            <div class="hours-row">
-              <span class="hours-day">Sábado</span>
-              <span class="hours-time">08:00 – 18:00</span>
-            </div>
-            <div class="hours-divider"></div>
-            <div class="hours-row">
-              <span class="hours-day">Domingo</span>
-              <span class="hours-time">Urgências</span>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════════ MAP ════════ -->
-<section class="map-section">
+<!-- ════════ REVIEWS ════════ -->
+<section>
   <div class="wrap">
-    <div class="sec-head fade-up" style="margin-bottom:32px">
-      <span class="eyebrow">Localização</span>
-      <h2 class="h2">Lisboa e <span class="serif">Zona Centro.</span></h2>
-      <p class="lead" style="margin-top:14px">Cobrimos toda a Grande Lisboa e Zona Centro. Deslocação confirmada no orçamento.</p>
+    <div class="reviews-grid fade-up">
+      <div class="review-card"><img src="imagens/review-1.png"  alt="Avaliação Google AirTech" loading="lazy"/></div>
+      <div class="review-card"><img src="imagens/review-2.png"  alt="Avaliação Google AirTech" loading="lazy"/></div>
+      <div class="review-card"><img src="imagens/review-3.png"  alt="Avaliação Google AirTech" loading="lazy"/></div>
+      <div class="review-card"><img src="imagens/Review4.png"   alt="Avaliação Google AirTech" loading="lazy"/></div>
     </div>
-    <div class="map-container fade-up">
-      <iframe
-        src="https://maps.google.com/maps?q=Olivais,Lisboa,Portugal&t=&z=13&ie=UTF8&iwloc=&output=embed"
-        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        title="Zona de cobertura AirTech">
-      </iframe>
+
+    <div style="text-align:center;margin-top:40px" class="fade-up">
+      <a href="https://www.facebook.com/AirTech.clima25" target="_blank" class="btn" style="background:#1877F2;color:#fff;box-shadow:0 6px 20px -6px rgba(24,119,242,.45)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.025 1.791-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.883v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+        Ver mais avaliações no Facebook
+      </a>
     </div>
+  </div>
+</section>
+
+<!-- ════════ WORK PORTFOLIO CAROUSEL ════════ -->
+<section class="bg2">
+  <div class="wrap">
+    <div class="sec-head center fade-up">
+      <span class="eyebrow">O nosso trabalho</span>
+      <h2 class="h2">Trabalhos <span class="serif">já concluídos.</span></h2>
+    </div>
+  </div>
+
+  <div class="car-outer">
+    <div class="car-track" id="carTrack">
+      <div class="car-slide"><img src="imagens/trabalho-feitos.jpg"   alt="Instalação de ar condicionado split em habitação — AirTech" loading="lazy"/></div>
+      <div class="car-slide"><img src="imagens/trabalho-feitos-1.jpg" alt="Unidade exterior instalada em fachada — AirTech" loading="lazy"/></div>
+      <div class="car-slide"><img src="imagens/Trabalha ja feitos2.jpg"  alt="Trabalho de canalização e instalação de AC — AirTech" loading="lazy"/></div>
+      <div class="car-slide"><img src="imagens/Trabalha ja feitos3.jpg"  alt="Ar condicionado de tecto instalado em sala — AirTech" loading="lazy"/></div>
+      <div class="car-slide"><img src="imagens/Trabalha ja feitos4.jpg"  alt="Instalação de ar condicionado em escritório — AirTech" loading="lazy"/></div>
+      <div class="car-slide"><img src="imagens/Trabalha ja feitos5.jpg"  alt="Unidade exterior multi-split em terraço — AirTech" loading="lazy"/></div>
+      <div class="car-slide"><img src="imagens/Trabalha ja feitos6.jpg"  alt="Instalação residencial de AC split — AirTech" loading="lazy"/></div>
+      <div class="car-slide"><img src="imagens/Trabalha ja feitos7.jpg"  alt="Ar condicionado cassete instalado em tecto falso — AirTech" loading="lazy"/></div>
+      <div class="car-slide"><img src="imagens/Trabalha ja feitos8.jpg"  alt="Trabalho de manutenção de ar condicionado — AirTech" loading="lazy"/></div>
+      <div class="car-slide"><img src="imagens/Trabalha ja feitos9.jpg"  alt="Instalação de AC em moradia unifamiliar — AirTech" loading="lazy"/></div>
+      <div class="car-slide"><img src="imagens/Trabalha ja feitos10.jpg" alt="Unidade interior de ar condicionado — AirTech" loading="lazy"/></div>
+      <div class="car-slide"><img src="imagens/Trabalha ja feitos11.jpg" alt="Projecto de climatização concluído — AirTech" loading="lazy"/></div>
+      <div class="car-slide"><img src="imagens/Trabalha ja feitos12.jpg" alt="Trabalho AirTech" loading="lazy"/></div>
+    </div>
+  </div>
+
+  <div class="car-nav">
+    <button class="car-btn" id="carPrev" aria-label="Anterior"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+    <div class="car-dots" id="carDots"></div>
+    <button class="car-btn" id="carNext" aria-label="Seguinte"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
   </div>
 </section>
 
 <!-- ════════ FINAL CTA ════════ -->
 <section id="cta-final">
   <div class="wrap">
-  <div class="cta-final-inner fade-up">
-    <h2 class="h1">
-      Pronto para começar?<br>
-      <span class="serif" style="color:var(--accent)">Fale connosco hoje.</span>
-    </h2>
-    <p class="lead lead-w" style="margin-top:20px;margin-inline:auto">
-      Orçamento gratuito, resposta em menos de 2 horas, zero compromisso.
-    </p>
-    <div class="cta-final-btns" style="margin-top:44px">
-      <a href="https://wa.me/351937058834?text=Ol%C3%A1%2C+preciso+de+or%C3%A7amento+para+ar+condicionado"
-         target="_blank" class="btn btn-wa btn-lg">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.854L0 24l6.343-1.499A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.07-1.415l-.362-.216-3.765.89.952-3.668-.237-.377A9.818 9.818 0 1112 21.818z"/></svg>
-        Falar no WhatsApp
-      </a>
-      <a href="tel:+351937058834" class="btn btn-outline btn-lg">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        937 058 834
-      </a>
+    <div class="cta-final-inner fade-up">
+      <h2 class="h1">
+        Fale com a nossa <span class="serif">família.</span>
+      </h2>
+      <p class="lead lead-w">
+        Somos uma empresa pequena e orgulhamo-nos disso. O seu contacto chega diretamente a nós — sem call centers, sem filas de espera.
+      </p>
+      <div class="cta-final-btns">
+        <a href="https://wa.me/351937058834?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+a+AirTech"
+           target="_blank" class="btn btn-wa btn-lg">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.854L0 24l6.343-1.499A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.07-1.415l-.362-.216-3.765.89.952-3.668-.237-.377A9.818 9.818 0 1112 21.818z"/></svg>
+          Falar no WhatsApp
+        </a>
+        <a href="contactos.html" class="btn btn-outline btn-lg">
+          Formulário de contacto
+        </a>
+      </div>
     </div>
-  </div>
   </div>
 </section>
 
@@ -670,8 +541,9 @@ footer { background:#050B16; padding:72px 0 0; color:rgba(255,255,255,.6) }
         <h4>Contacto</h4>
         <ul>
           <li><a href="tel:+351937058834">937 058 834</a></li>
-          <li><a href="mailto:info@airtech.pt">info@airtech.pt</a></li>
           <li><a href="https://wa.me/351937058834" target="_blank">WhatsApp</a></li>
+          <li><a href="contactos.html">Formulário</a></li>
+          <li><a href="https://www.facebook.com/AirTech.clima25" target="_blank">Facebook</a></li>
         </ul>
       </div>
     </div>
@@ -681,11 +553,6 @@ footer { background:#050B16; padding:72px 0 0; color:rgba(255,255,255,.6) }
     </div>
   </div>
 </footer>
-
-<!-- Floating WhatsApp -->
-<a href="https://wa.me/351937058834?text=Ol%C3%A1%2C+preciso+de+ajuda+com+ar+condicionado" target="_blank" class="wa-float" aria-label="WhatsApp">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.854L0 24l6.343-1.499A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.07-1.415l-.362-.216-3.765.89.952-3.668-.237-.377A9.818 9.818 0 1112 21.818z"/></svg>
-</a>
 
 <script>
 const hdr = document.getElementById('header');
@@ -701,25 +568,78 @@ function toggleDrawer() {
   document.body.style.overflow = d.classList.contains('open') ? 'hidden' : '';
 }
 
-function handleForm(e) {
-  e.preventDefault();
-  const name    = document.getElementById('cf-name').value;
-  const phone   = document.getElementById('cf-phone').value;
-  const service = document.getElementById('cf-service').value;
-  const local   = document.getElementById('cf-local').value;
-  const msg     = document.getElementById('cf-msg').value;
-  let text = `Olá, vim do site AirTech.\n\nNome: ${name}\nTelefone: ${phone}\nServiço: ${service}`;
-  if (local) text += `\nLocalização: ${local}`;
-  if (msg)   text += `\nDetalhes: ${msg}`;
-  window.open('https://wa.me/351937058834?text=' + encodeURIComponent(text), '_blank');
-}
-
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
   });
 }, { threshold: 0.07, rootMargin: '0px 0px -20px 0px' });
 document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+
+/* ═══ CAROUSEL ═══ */
+(function () {
+  const track = document.getElementById('carTrack');
+  const dotsWrap = document.getElementById('carDots');
+  if (!track) return;
+
+  const slides = track.querySelectorAll('.car-slide');
+  const total  = slides.length;
+  let cur = 0, timer;
+
+  function pv() {
+    return window.innerWidth < 480 ? 1 : window.innerWidth < 820 ? 2 : 3;
+  }
+  function maxI() { return Math.max(0, total - pv()); }
+
+  function go(n) {
+    cur = Math.max(0, Math.min(n, maxI()));
+    track.style.transform = `translateX(-${(100 / pv()) * cur}%)`;
+    updateDots();
+  }
+
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    const pages = Math.ceil(total / pv());
+    for (let i = 0; i < pages; i++) {
+      const d = document.createElement('div');
+      d.className = 'car-dot' + (i === 0 ? ' on' : '');
+      const idx = i;
+      d.onclick = () => { go(idx * pv()); reset(); };
+      dotsWrap.appendChild(d);
+    }
+  }
+
+  function updateDots() {
+    const dots = dotsWrap.querySelectorAll('.car-dot');
+    const active = Math.round(cur / pv());
+    dots.forEach((d, i) => d.classList.toggle('on', i === active));
+  }
+
+  function reset() {
+    clearInterval(timer);
+    timer = setInterval(() => go(cur >= maxI() ? 0 : cur + 1), 4000);
+  }
+
+  function setSlideWidth() {
+    const w = 100 / pv();
+    slides.forEach(s => s.style.flex = `0 0 ${w}%`);
+  }
+
+  document.getElementById('carPrev').onclick = () => { go(cur - 1); reset(); };
+  document.getElementById('carNext').onclick = () => { go(cur + 1); reset(); };
+
+  let sx = 0;
+  track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend',   e => {
+    const dx = sx - e.changedTouches[0].clientX;
+    if (Math.abs(dx) > 48) { go(dx > 0 ? cur + 1 : cur - 1); reset(); }
+  }, { passive: true });
+
+  window.addEventListener('resize', () => { setSlideWidth(); buildDots(); go(0); });
+
+  setSlideWidth();
+  buildDots();
+  reset();
+})();
 </script>
 </body>
 </html>
